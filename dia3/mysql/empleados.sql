@@ -335,113 +335,675 @@ insert into empleado (id, nombre, area, email, pais, salario) values (325, 'Les 
 insert into empleado (id, nombre, area, email, pais, salario) values (326, 'Nannie Heinrich', 'Sales', 'nheinrich91@nps.gov', 'Mexico', 5080);
 insert into empleado (id, nombre, area, email, pais, salario) values (327, 'Ag O''Boyle', 'Legal', 'aoboyle92@dot.gov', 'Chile', 805);
 insert into empleado (id, nombre, area, email, pais, salario) values (328, 'Danette Conradsen', 'Legal', 'dconradsen93@eventbrite.com', 'Colombia', 7322);
-
--- CONSULTAS BASICAS
-select * from empleado;
-
-select nombre, area, pais, salario
-from empleado;
-
--- FILTROS
-select *
-from empleado
-where pais = 'Peru';
-
-select *
-from empleado
-where salario > 5000;
-
-select *
-from empleado
-where salario between 3000 and 7000;
-
-select *
-from empleado
-where area = 'Engineering';
-
-select *
-from empleado
-where nombre like '%a%';
-
-select *
-from empleado
-where pais in ('Peru', 'Colombia', 'Mexico');
-
-select *
-from empleado
-where email is not null;
-
--- ORDENAMIENTO
-select *
-from empleado
-order by salario asc;
-
-select *
-from empleado
-order by salario desc;
-
-select *
-from empleado
-order by pais asc, salario desc;
-
--- LIMIT
-select *
-from empleado
-limit 10;
-
-select *
-from empleado
-order by salario desc
-limit 5;
-
--- AGREGACIONES
-select count(*) as total_empleados
-from empleado;
-
-select sum(salario) as suma_salarios
-from empleado;
-
-select avg(salario) as promedio_salario
-from empleado;
-
-select min(salario) as salario_minimo, max(salario) as salario_maximo
-from empleado;
-
--- AGRUPACIONES
-select pais, count(*) as total
-from empleado
-group by pais
-order by total desc;
-
-select area, count(*) as total
-from empleado
-group by area
-order by total desc;
-
-select pais, round(avg(salario), 2) as salario_promedio
-from empleado
-group by pais
-order by salario_promedio desc;
-
-select area, round(avg(salario), 2) as salario_promedio
-from empleado
-group by area
-order by salario_promedio desc;
-
-select pais, sum(salario) as planilla_total
-from empleado
-group by pais
-order by planilla_total desc;
-
--- HAVING
-select pais, count(*) as total
-from empleado
-group by pais
-having count(*) >= 20
-order by total desc;
-
-select area, round(avg(salario), 2) as salario_promedio
-from empleado
-group by area
-having avg(salario) > 5000
-order by salario_promedio desc;
+insert into empleado (id, nombre, area, email, pais, salario) values (329, 'Sibley Glasard', 'Accounting', 'sglasard94@si.edu', 'Argentina', 4763);
+insert into empleado (id, nombre, area, email, pais, salario) values (330, 'Marjorie Gulliver', 'Business Development', 'mgulliver95@shutterfly.com', 'Colombia', 459);
+insert into empleado (id, nombre, area, email, pais, salario) values (331, 'Erin MacDwyer', 'Legal', 'emacdwyer96@1und1.de', 'Argentina', 9387);
+insert into empleado (id, nombre, area, email, pais, salario) values (332, 'Rozanne Dangerfield', 'Accounting', 'rdangerfield97@istockphoto.com', 'Chile', 9798);
+insert into empleado (id, nombre, area, email, pais, salario) values (333, 'Thurstan Walworche', 'Marketing', 'twalworche98@aol.com', 'Peru', 817);
+insert into empleado (id, nombre, area, email, pais, salario) values (334, 'Mommy Manjin', 'Engineering', 'mmanjin99@wisc.edu', 'Colombia', 5594);
+insert into empleado (id, nombre, area, email, pais, salario) values (335, 'Edna Triggs', 'Support', 'etriggs9a@sbwire.com', 'Spain', 161);
+insert into empleado (id, nombre, area, email, pais, salario) values (336, 'Hastie Castellaccio', 'Engineering', 'hcastellaccio9b@techcrunch.com', 'Peru', 5266);
+insert into empleado (id, nombre, area, email, pais, salario) values (337, 'Addia Blodgetts', 'Sales', 'ablodgetts9c@google.nl', 'Mexico', 5033);
+insert into empleado (id, nombre, area, email, pais, salario) values (338, 'Jocko Camerello', 'Marketing', 'jcamerello9d@cyberchimps.com', 'Colombia', 9021);
+insert into empleado (id, nombre, area, email, pais, salario) values (339, 'Simeon Dunstall', 'Accounting', 'sdunstall9e@technorati.com', 'Peru', 3873);
+insert into empleado (id, nombre, area, email, pais, salario) values (340, 'Angelo Schuster', 'Product Management', 'aschuster9f@go.com', 'Mexico', 2928);
+insert into empleado (id, nombre, area, email, pais, salario) values (341, 'Ralph Jewson', 'Training', 'rjewson9g@fotki.com', 'Mexico', 703);
+insert into empleado (id, nombre, area, email, pais, salario) values (342, 'Allsun Janes', 'Accounting', 'ajanes9h@xrea.com', 'Mexico', 416);
+insert into empleado (id, nombre, area, email, pais, salario) values (343, 'Vivyan Edson', 'Legal', 'vedson9i@imgur.com', 'Colombia', 1837);
+insert into empleado (id, nombre, area, email, pais, salario) values (344, 'Saree Keyser', 'Business Development', 'skeyser9j@npr.org', 'Colombia', 4822);
+insert into empleado (id, nombre, area, email, pais, salario) values (345, 'Irma Goomes', 'Human Resources', 'igoomes9k@google.ca', 'Spain', 6952);
+insert into empleado (id, nombre, area, email, pais, salario) values (346, 'Rogerio Panter', 'Accounting', 'rpanter9l@dailymotion.com', 'Argentina', 3690);
+insert into empleado (id, nombre, area, email, pais, salario) values (347, 'Amelita Mattussevich', 'Training', 'amattussevich9m@arstechnica.com', 'Argentina', 6511);
+insert into empleado (id, nombre, area, email, pais, salario) values (348, 'Fay Nezey', 'Research and Development', 'fnezey9n@ft.com', 'Argentina', 9321);
+insert into empleado (id, nombre, area, email, pais, salario) values (349, 'Nichols Shawe', 'Marketing', 'nshawe9o@people.com.cn', 'Colombia', 9070);
+insert into empleado (id, nombre, area, email, pais, salario) values (350, 'Madge Sapir', 'Human Resources', 'msapir9p@cnet.com', 'Mexico', 8877);
+insert into empleado (id, nombre, area, email, pais, salario) values (351, 'Gilda Foskew', 'Engineering', 'gfoskew9q@scribd.com', 'Argentina', 1210);
+insert into empleado (id, nombre, area, email, pais, salario) values (352, 'Bartlett Firebrace', 'Engineering', 'bfirebrace9r@si.edu', 'Bolivia', 9954);
+insert into empleado (id, nombre, area, email, pais, salario) values (353, 'Tabor Babbidge', 'Research and Development', 'tbabbidge9s@upenn.edu', 'Mexico', 5645);
+insert into empleado (id, nombre, area, email, pais, salario) values (354, 'Gates Umbert', 'Product Management', 'gumbert9t@latimes.com', 'Mexico', 1637);
+insert into empleado (id, nombre, area, email, pais, salario) values (355, 'Garwood Managh', 'Sales', 'gmanagh9u@mac.com', 'Argentina', 1967);
+insert into empleado (id, nombre, area, email, pais, salario) values (356, 'Bartholomew Krammer', 'Training', 'bkrammer9v@imageshack.us', 'Colombia', 5503);
+insert into empleado (id, nombre, area, email, pais, salario) values (357, 'Mufinella Von Der Empten', 'Training', 'mvon9w@wikipedia.org', 'Mexico', 9502);
+insert into empleado (id, nombre, area, email, pais, salario) values (358, 'Grazia Prestney', 'Accounting', 'gprestney9x@theguardian.com', 'Peru', 6800);
+insert into empleado (id, nombre, area, email, pais, salario) values (359, 'Brandice Ivermee', 'Accounting', 'bivermee9y@drupal.org', 'Argentina', 5239);
+insert into empleado (id, nombre, area, email, pais, salario) values (360, 'Guthrie Wallwork', 'Accounting', 'gwallwork9z@pagesperso-orange.fr', 'Mexico', 6729);
+insert into empleado (id, nombre, area, email, pais, salario) values (361, 'Flin de Merida', 'Accounting', 'fdea0@facebook.com', 'Colombia', 269);
+insert into empleado (id, nombre, area, email, pais, salario) values (362, 'Linzy Oxford', 'Support', 'loxforda1@bloomberg.com', 'Mexico', 8769);
+insert into empleado (id, nombre, area, email, pais, salario) values (363, 'Nelson Ambrose', 'Training', 'nambrosea2@china.com.cn', 'Argentina', 8191);
+insert into empleado (id, nombre, area, email, pais, salario) values (364, 'Rebeka Hawksley', 'Engineering', 'rhawksleya3@google.com.hk', 'Colombia', 7476);
+insert into empleado (id, nombre, area, email, pais, salario) values (365, 'Sibley Miskimmon', 'Research and Development', 'smiskimmona4@google.cn', 'Colombia', 4016);
+insert into empleado (id, nombre, area, email, pais, salario) values (366, 'Ulrick Lehr', 'Services', 'ulehra5@go.com', 'Spain', 4381);
+insert into empleado (id, nombre, area, email, pais, salario) values (367, 'Janot Tomkys', 'Engineering', 'jtomkysa6@qq.com', 'Mexico', 3201);
+insert into empleado (id, nombre, area, email, pais, salario) values (368, 'Glen Kiloh', 'Training', 'gkiloha7@time.com', 'Colombia', 1131);
+insert into empleado (id, nombre, area, email, pais, salario) values (369, 'Tallou Landes', 'Training', 'tlandesa8@wufoo.com', 'Uruguay', 9817);
+insert into empleado (id, nombre, area, email, pais, salario) values (370, 'Brianna Prosek', 'Product Management', 'bproseka9@issuu.com', 'Bolivia', 3676);
+insert into empleado (id, nombre, area, email, pais, salario) values (371, 'Marc Wickins', 'Human Resources', 'mwickinsaa@goo.ne.jp', 'Argentina', 6503);
+insert into empleado (id, nombre, area, email, pais, salario) values (372, 'Neel Ende', 'Research and Development', 'nendeab@yellowpages.com', 'Argentina', 6324);
+insert into empleado (id, nombre, area, email, pais, salario) values (373, 'Indira Drewes', 'Business Development', 'idrewesac@icq.com', 'Argentina', 7852);
+insert into empleado (id, nombre, area, email, pais, salario) values (374, 'Witty Josifovic', 'Support', 'wjosifovicad@miibeian.gov.cn', 'Mexico', 2430);
+insert into empleado (id, nombre, area, email, pais, salario) values (375, 'Leonanie Sach', 'Accounting', 'lsachae@spotify.com', 'Chile', 9945);
+insert into empleado (id, nombre, area, email, pais, salario) values (376, 'Weider Marden', 'Engineering', 'wmardenaf@woothemes.com', 'Peru', 1413);
+insert into empleado (id, nombre, area, email, pais, salario) values (377, 'Flory Giorgi', 'Business Development', 'fgiorgiag@netvibes.com', 'Argentina', 7559);
+insert into empleado (id, nombre, area, email, pais, salario) values (378, 'Raeann Ackland', 'Legal', 'racklandah@yelp.com', 'Colombia', 7275);
+insert into empleado (id, nombre, area, email, pais, salario) values (379, 'Idalina Galletley', 'Business Development', 'igalletleyai@jigsy.com', 'Uruguay', 1412);
+insert into empleado (id, nombre, area, email, pais, salario) values (380, 'Mommy Troni', 'Engineering', 'mtroniaj@flickr.com', 'Argentina', 9471);
+insert into empleado (id, nombre, area, email, pais, salario) values (381, 'Bale Clouston', 'Accounting', 'bcloustonak@mozilla.com', 'Mexico', 9811);
+insert into empleado (id, nombre, area, email, pais, salario) values (382, 'Francesca Eastlake', 'Research and Development', 'feastlakeal@yelp.com', 'Colombia', 743);
+insert into empleado (id, nombre, area, email, pais, salario) values (383, 'Deirdre Norledge', 'Engineering', 'dnorledgeam@yahoo.co.jp', 'Colombia', 2776);
+insert into empleado (id, nombre, area, email, pais, salario) values (384, 'Issy Caush', 'Product Management', 'icaushan@nifty.com', 'Argentina', 5856);
+insert into empleado (id, nombre, area, email, pais, salario) values (385, 'Ellswerth Dudderidge', 'Marketing', 'edudderidgeao@twitpic.com', 'Argentina', 2950);
+insert into empleado (id, nombre, area, email, pais, salario) values (386, 'Eolanda Habbergham', 'Support', 'ehabberghamap@dagondesign.com', 'Peru', 6008);
+insert into empleado (id, nombre, area, email, pais, salario) values (387, 'Elsi Rosoni', 'Accounting', 'erosoniaq@reuters.com', 'Peru', 9876);
+insert into empleado (id, nombre, area, email, pais, salario) values (388, 'August Affleck', 'Human Resources', 'aaffleckar@theglobeandmail.com', 'Peru', 1696);
+insert into empleado (id, nombre, area, email, pais, salario) values (389, 'Cristina Lount', 'Marketing', 'clountas@skype.com', 'Colombia', 2944);
+insert into empleado (id, nombre, area, email, pais, salario) values (390, 'Rozina Pooke', 'Research and Development', 'rpookeat@newsvine.com', 'Peru', 1637);
+insert into empleado (id, nombre, area, email, pais, salario) values (391, 'Papageno Hulse', 'Human Resources', 'phulseau@bigcartel.com', 'Peru', 6177);
+insert into empleado (id, nombre, area, email, pais, salario) values (392, 'Tobi Danford', 'Marketing', 'tdanfordav@yellowbook.com', 'Mexico', 6024);
+insert into empleado (id, nombre, area, email, pais, salario) values (393, 'Quentin Heyward', 'Support', 'qheywardaw@skype.com', 'Mexico', 7183);
+insert into empleado (id, nombre, area, email, pais, salario) values (394, 'Lynett Brandham', 'Business Development', 'lbrandhamax@amazon.com', 'Argentina', 3364);
+insert into empleado (id, nombre, area, email, pais, salario) values (395, 'Daveen Scarfe', 'Legal', 'dscarfeay@opera.com', 'Peru', 8324);
+insert into empleado (id, nombre, area, email, pais, salario) values (396, 'Louis Aitken', 'Marketing', 'laitkenaz@1und1.de', 'Chile', 2455);
+insert into empleado (id, nombre, area, email, pais, salario) values (397, 'Norean Notti', 'Business Development', 'nnottib0@rambler.ru', 'Peru', 755);
+insert into empleado (id, nombre, area, email, pais, salario) values (398, 'Iormina Vooght', 'Legal', 'ivooghtb1@goo.ne.jp', 'Argentina', 7242);
+insert into empleado (id, nombre, area, email, pais, salario) values (399, 'Lyndsie Bellhanger', 'Accounting', 'lbellhangerb2@indiegogo.com', 'Colombia', 2160);
+insert into empleado (id, nombre, area, email, pais, salario) values (400, 'Mitchell McGiven', 'Legal', 'mmcgivenb3@myspace.com', 'Chile', 3277);
+insert into empleado (id, nombre, area, email, pais, salario) values (401, 'Paloma Nerger', 'Marketing', 'pnergerb4@ifeng.com', 'Argentina', 8086);
+insert into empleado (id, nombre, area, email, pais, salario) values (402, 'Lorena Goldthorp', 'Engineering', 'lgoldthorpb5@wix.com', 'Argentina', 2910);
+insert into empleado (id, nombre, area, email, pais, salario) values (403, 'Herta Mervyn', 'Human Resources', 'hmervynb6@spiegel.de', 'Colombia', 483);
+insert into empleado (id, nombre, area, email, pais, salario) values (404, 'Nigel Mullin', 'Business Development', 'nmullinb7@biglobe.ne.jp', 'Colombia', 6874);
+insert into empleado (id, nombre, area, email, pais, salario) values (405, 'Keeley Pevsner', 'Sales', 'kpevsnerb8@prweb.com', 'Mexico', 1702);
+insert into empleado (id, nombre, area, email, pais, salario) values (406, 'Winifred Linfoot', 'Support', 'wlinfootb9@webs.com', 'Mexico', 6358);
+insert into empleado (id, nombre, area, email, pais, salario) values (407, 'Iggy Surmeyers', 'Marketing', 'isurmeyersba@tripadvisor.com', 'Colombia', 4524);
+insert into empleado (id, nombre, area, email, pais, salario) values (408, 'Dell Warrick', 'Training', 'dwarrickbb@gov.uk', 'Argentina', 104);
+insert into empleado (id, nombre, area, email, pais, salario) values (409, 'Pierrette Strugnell', 'Sales', 'pstrugnellbc@qq.com', 'Peru', 404);
+insert into empleado (id, nombre, area, email, pais, salario) values (410, 'Gabriele Benedite', 'Human Resources', 'gbeneditebd@blogtalkradio.com', 'Peru', 3768);
+insert into empleado (id, nombre, area, email, pais, salario) values (411, 'Carolyn Kobsch', 'Marketing', 'ckobschbe@newsvine.com', 'Argentina', 1572);
+insert into empleado (id, nombre, area, email, pais, salario) values (412, 'Terrel Chaplin', 'Engineering', 'tchaplinbf@deliciousdays.com', 'Colombia', 7068);
+insert into empleado (id, nombre, area, email, pais, salario) values (413, 'Rodina Spruce', 'Marketing', 'rsprucebg@is.gd', 'Colombia', 6062);
+insert into empleado (id, nombre, area, email, pais, salario) values (414, 'Lisabeth Giraudy', 'Research and Development', 'lgiraudybh@imdb.com', 'Argentina', 1094);
+insert into empleado (id, nombre, area, email, pais, salario) values (415, 'Brandyn Cromly', 'Support', 'bcromlybi@pinterest.com', 'Mexico', 1911);
+insert into empleado (id, nombre, area, email, pais, salario) values (416, 'Hanny Bezarra', 'Services', 'hbezarrabj@archive.org', 'Spain', 6257);
+insert into empleado (id, nombre, area, email, pais, salario) values (417, 'Dulce Drejer', 'Support', 'ddrejerbk@ask.com', 'Peru', 2865);
+insert into empleado (id, nombre, area, email, pais, salario) values (418, 'Terra Gribble', 'Product Management', 'tgribblebl@flickr.com', 'Mexico', 9622);
+insert into empleado (id, nombre, area, email, pais, salario) values (419, 'Fin Collcott', 'Accounting', 'fcollcottbm@rediff.com', 'Colombia', 3030);
+insert into empleado (id, nombre, area, email, pais, salario) values (420, 'Bo Winchcomb', 'Business Development', 'bwinchcombbn@mediafire.com', 'Mexico', 9493);
+insert into empleado (id, nombre, area, email, pais, salario) values (421, 'Kinna Ramsdale', 'Marketing', 'kramsdalebo@t-online.de', 'Peru', 9088);
+insert into empleado (id, nombre, area, email, pais, salario) values (422, 'Tally Montfort', 'Accounting', 'tmontfortbp@a8.net', 'Peru', 1080);
+insert into empleado (id, nombre, area, email, pais, salario) values (423, 'Jobie Bragg', 'Business Development', 'jbraggbq@mit.edu', 'Argentina', 3087);
+insert into empleado (id, nombre, area, email, pais, salario) values (424, 'Sax Hucklesby', 'Business Development', 'shucklesbybr@yolasite.com', 'Colombia', 6756);
+insert into empleado (id, nombre, area, email, pais, salario) values (425, 'Maxwell Allman', 'Legal', 'mallmanbs@topsy.com', 'Mexico', 2636);
+insert into empleado (id, nombre, area, email, pais, salario) values (426, 'Steffi Lempke', 'Business Development', 'slempkebt@huffingtonpost.com', 'Mexico', 5704);
+insert into empleado (id, nombre, area, email, pais, salario) values (427, 'Aldrich Fairfoot', 'Sales', 'afairfootbu@ca.gov', 'Mexico', 8812);
+insert into empleado (id, nombre, area, email, pais, salario) values (428, 'Leanna Carvill', 'Marketing', 'lcarvillbv@blinklist.com', 'Argentina', 7069);
+insert into empleado (id, nombre, area, email, pais, salario) values (429, 'Vaughan Petroulis', 'Sales', 'vpetroulisbw@shareasale.com', 'Peru', 2091);
+insert into empleado (id, nombre, area, email, pais, salario) values (430, 'Alano Rollin', 'Marketing', 'arollinbx@nature.com', 'Peru', 2596);
+insert into empleado (id, nombre, area, email, pais, salario) values (431, 'Lion Measham', 'Engineering', 'lmeashamby@gmpg.org', 'Mexico', 4253);
+insert into empleado (id, nombre, area, email, pais, salario) values (432, 'Florence Mariolle', 'Sales', 'fmariollebz@tmall.com', 'Colombia', 3101);
+insert into empleado (id, nombre, area, email, pais, salario) values (433, 'Pauly Haken', 'Research and Development', 'phakenc0@storify.com', 'Argentina', 9735);
+insert into empleado (id, nombre, area, email, pais, salario) values (434, 'Amalea Chadwen', 'Research and Development', 'achadwenc1@economist.com', 'Mexico', 9747);
+insert into empleado (id, nombre, area, email, pais, salario) values (435, 'Ryun Gallichan', 'Research and Development', 'rgallichanc2@ameblo.jp', 'Mexico', 3238);
+insert into empleado (id, nombre, area, email, pais, salario) values (436, 'Stanislaw Beningfield', 'Accounting', 'sbeningfieldc3@weebly.com', 'Peru', 8910);
+insert into empleado (id, nombre, area, email, pais, salario) values (437, 'Kasey Haslum', 'Support', 'khaslumc4@walmart.com', 'Peru', 5188);
+insert into empleado (id, nombre, area, email, pais, salario) values (438, 'Wenonah Gebby', 'Services', 'wgebbyc5@ehow.com', 'Peru', 8623);
+insert into empleado (id, nombre, area, email, pais, salario) values (439, 'Salome Windibank', 'Product Management', 'swindibankc6@mashable.com', 'Peru', 6386);
+insert into empleado (id, nombre, area, email, pais, salario) values (440, 'Marylinda Gillions', 'Training', 'mgillionsc7@biblegateway.com', 'Mexico', 9597);
+insert into empleado (id, nombre, area, email, pais, salario) values (441, 'Rossy Baise', 'Business Development', 'rbaisec8@homestead.com', 'Colombia', 9212);
+insert into empleado (id, nombre, area, email, pais, salario) values (442, 'Dion Hammor', 'Human Resources', 'dhammorc9@google.pl', 'Argentina', 7027);
+insert into empleado (id, nombre, area, email, pais, salario) values (443, 'Boyce Lackemann', 'Services', 'blackemannca@auda.org.au', 'Mexico', 8914);
+insert into empleado (id, nombre, area, email, pais, salario) values (444, 'Maurizio Housegoe', 'Sales', 'mhousegoecb@oaic.gov.au', 'Peru', 1140);
+insert into empleado (id, nombre, area, email, pais, salario) values (445, 'Val Murray', 'Sales', 'vmurraycc@virginia.edu', 'Peru', 4442);
+insert into empleado (id, nombre, area, email, pais, salario) values (446, 'De witt Spillett', 'Marketing', 'dwittcd@g.co', 'Peru', 9119);
+insert into empleado (id, nombre, area, email, pais, salario) values (447, 'Jillane Jesson', 'Human Resources', 'jjessonce@rakuten.co.jp', 'Argentina', 2644);
+insert into empleado (id, nombre, area, email, pais, salario) values (448, 'Ingaberg Pressdee', 'Business Development', 'ipressdeecf@virginia.edu', 'Colombia', 6742);
+insert into empleado (id, nombre, area, email, pais, salario) values (449, 'Abdel Gaiford', 'Engineering', 'agaifordcg@state.tx.us', 'Argentina', 968);
+insert into empleado (id, nombre, area, email, pais, salario) values (450, 'Antoine Hadeke', 'Marketing', 'ahadekech@shop-pro.jp', 'Peru', 1316);
+insert into empleado (id, nombre, area, email, pais, salario) values (451, 'Conway Ryles', 'Sales', 'crylesci@zimbio.com', 'Argentina', 5807);
+insert into empleado (id, nombre, area, email, pais, salario) values (452, 'Durant Nance', 'Legal', 'dnancecj@nba.com', 'Colombia', 7501);
+insert into empleado (id, nombre, area, email, pais, salario) values (453, 'Nicholle Apedaile', 'Accounting', 'napedaileck@icio.us', 'Mexico', 251);
+insert into empleado (id, nombre, area, email, pais, salario) values (454, 'Lynn Fanstone', 'Training', 'lfanstonecl@hostgator.com', 'Argentina', 6564);
+insert into empleado (id, nombre, area, email, pais, salario) values (455, 'Alric Brimming', 'Business Development', 'abrimmingcm@ow.ly', 'Peru', 7763);
+insert into empleado (id, nombre, area, email, pais, salario) values (456, 'Mal Quimby', 'Accounting', 'mquimbycn@privacy.gov.au', 'Colombia', 8376);
+insert into empleado (id, nombre, area, email, pais, salario) values (457, 'Marielle Simmons', 'Business Development', 'msimmonsco@cocolog-nifty.com', 'Argentina', 4210);
+insert into empleado (id, nombre, area, email, pais, salario) values (458, 'Aurelie Maciejewski', 'Support', 'amaciejewskicp@china.com.cn', 'Colombia', 6162);
+insert into empleado (id, nombre, area, email, pais, salario) values (459, 'Annetta Lowndsbrough', 'Product Management', 'alowndsbroughcq@blinklist.com', 'Peru', 876);
+insert into empleado (id, nombre, area, email, pais, salario) values (460, 'Rona Metts', 'Human Resources', 'rmettscr@home.pl', 'Argentina', 3111);
+insert into empleado (id, nombre, area, email, pais, salario) values (461, 'Irene Candy', 'Services', 'icandycs@ed.gov', 'Mexico', 8575);
+insert into empleado (id, nombre, area, email, pais, salario) values (462, 'Frederique Ashley', 'Product Management', 'fashleyct@discuz.net', 'Peru', 8);
+insert into empleado (id, nombre, area, email, pais, salario) values (463, 'Ronnie Spearman', 'Training', 'rspearmancu@economist.com', 'Colombia', 5942);
+insert into empleado (id, nombre, area, email, pais, salario) values (464, 'Malina World', 'Business Development', 'mworldcv@boston.com', 'Peru', 7641);
+insert into empleado (id, nombre, area, email, pais, salario) values (465, 'Bianca Grevel', 'Engineering', 'bgrevelcw@ucoz.com', 'Peru', 9576);
+insert into empleado (id, nombre, area, email, pais, salario) values (466, 'Kendricks Tarply', 'Sales', 'ktarplycx@deviantart.com', 'Bolivia', 5737);
+insert into empleado (id, nombre, area, email, pais, salario) values (467, 'Patrice Chantree', 'Support', 'pchantreecy@dot.gov', 'Colombia', 1748);
+insert into empleado (id, nombre, area, email, pais, salario) values (468, 'Frederik Roja', 'Business Development', 'frojacz@aboutads.info', 'Mexico', 3942);
+insert into empleado (id, nombre, area, email, pais, salario) values (469, 'Leupold Dannohl', 'Business Development', 'ldannohld0@chicagotribune.com', 'Chile', 2920);
+insert into empleado (id, nombre, area, email, pais, salario) values (470, 'Hildegaard Cuddon', 'Product Management', 'hcuddond1@ow.ly', 'Uruguay', 4488);
+insert into empleado (id, nombre, area, email, pais, salario) values (471, 'Cristian Le Noury', 'Support', 'cled2@tripadvisor.com', 'Spain', 4938);
+insert into empleado (id, nombre, area, email, pais, salario) values (472, 'Glenine Week', 'Support', 'gweekd3@feedburner.com', 'Argentina', 8077);
+insert into empleado (id, nombre, area, email, pais, salario) values (473, 'Kathrine Alsopp', 'Services', 'kalsoppd4@symantec.com', 'Mexico', 1274);
+insert into empleado (id, nombre, area, email, pais, salario) values (474, 'Herby Parsell', 'Marketing', 'hparselld5@feedburner.com', 'Peru', 3952);
+insert into empleado (id, nombre, area, email, pais, salario) values (475, 'Jon Riepl', 'Training', 'jriepld6@hexun.com', 'Mexico', 6916);
+insert into empleado (id, nombre, area, email, pais, salario) values (476, 'Crin Ward', 'Research and Development', 'cwardd7@qq.com', 'Bolivia', 7825);
+insert into empleado (id, nombre, area, email, pais, salario) values (477, 'Gabriele Gatman', 'Engineering', 'ggatmand8@amazon.com', 'Argentina', 3787);
+insert into empleado (id, nombre, area, email, pais, salario) values (478, 'Seline Durtnell', 'Training', 'sdurtnelld9@aboutads.info', 'Argentina', 4000);
+insert into empleado (id, nombre, area, email, pais, salario) values (479, 'Way Andreia', 'Services', 'wandreiada@cbslocal.com', 'Mexico', 6803);
+insert into empleado (id, nombre, area, email, pais, salario) values (480, 'Jaymie Leyban', 'Marketing', 'jleybandb@surveymonkey.com', 'Argentina', 150);
+insert into empleado (id, nombre, area, email, pais, salario) values (481, 'Pinchas Bodley', 'Research and Development', 'pbodleydc@tumblr.com', 'Colombia', 1678);
+insert into empleado (id, nombre, area, email, pais, salario) values (482, 'Koren Senechell', 'Product Management', 'ksenechelldd@about.com', 'Mexico', 4331);
+insert into empleado (id, nombre, area, email, pais, salario) values (483, 'Manny O''Hartnedy', 'Training', 'mohartnedyde@e-recht24.de', 'Mexico', 7106);
+insert into empleado (id, nombre, area, email, pais, salario) values (484, 'Karine Brenneke', 'Product Management', 'kbrennekedf@weebly.com', 'Mexico', 1102);
+insert into empleado (id, nombre, area, email, pais, salario) values (485, 'Jessie Caulcutt', 'Research and Development', 'jcaulcuttdg@behance.net', 'Argentina', 20);
+insert into empleado (id, nombre, area, email, pais, salario) values (486, 'Andrea Gimeno', 'Training', 'agimenodh@cocolog-nifty.com', 'Argentina', 3979);
+insert into empleado (id, nombre, area, email, pais, salario) values (487, 'Drucie Dalligan', 'Human Resources', 'ddalligandi@naver.com', 'Argentina', 6889);
+insert into empleado (id, nombre, area, email, pais, salario) values (488, 'Demetris Beat', 'Sales', 'dbeatdj@apache.org', 'Mexico', 4610);
+insert into empleado (id, nombre, area, email, pais, salario) values (489, 'Kylie Greetham', 'Services', 'kgreethamdk@stumbleupon.com', 'Peru', 234);
+insert into empleado (id, nombre, area, email, pais, salario) values (490, 'Janeen Bowcher', 'Services', 'jbowcherdl@economist.com', 'Argentina', 619);
+insert into empleado (id, nombre, area, email, pais, salario) values (491, 'Devin Faivre', 'Support', 'dfaivredm@army.mil', 'Argentina', 6039);
+insert into empleado (id, nombre, area, email, pais, salario) values (492, 'Erinn Pelos', 'Services', 'epelosdn@dagondesign.com', 'Peru', 5509);
+insert into empleado (id, nombre, area, email, pais, salario) values (493, 'Meryl Jacqueminot', 'Accounting', 'mjacqueminotdo@biblegateway.com', 'Chile', 377);
+insert into empleado (id, nombre, area, email, pais, salario) values (494, 'Gabie Oxlee', 'Research and Development', 'goxleedp@cnn.com', 'Uruguay', 7789);
+insert into empleado (id, nombre, area, email, pais, salario) values (495, 'Lorilee Lovejoy', 'Research and Development', 'llovejoydq@technorati.com', 'Argentina', 724);
+insert into empleado (id, nombre, area, email, pais, salario) values (496, 'Elyssa Heild', 'Support', 'eheilddr@latimes.com', 'Argentina', 9007);
+insert into empleado (id, nombre, area, email, pais, salario) values (497, 'Sergeant Weymont', 'Product Management', 'sweymontds@about.com', 'Argentina', 3112);
+insert into empleado (id, nombre, area, email, pais, salario) values (498, 'Corina Vassall', 'Training', 'cvassalldt@cdc.gov', 'Mexico', 652);
+insert into empleado (id, nombre, area, email, pais, salario) values (499, 'Nicolais Aslen', 'Engineering', 'naslendu@reverbnation.com', 'Argentina', 3056);
+insert into empleado (id, nombre, area, email, pais, salario) values (500, 'Doralin Celloni', 'Engineering', 'dcellonidv@si.edu', 'Mexico', 1782);
+insert into empleado (id, nombre, area, email, pais, salario) values (501, 'Felipa Bettenson', 'Business Development', 'fbettensondw@nbcnews.com', 'Peru', 1167);
+insert into empleado (id, nombre, area, email, pais, salario) values (502, 'Odelinda Saunders', 'Training', 'osaundersdx@nhs.uk', 'Argentina', 5369);
+insert into empleado (id, nombre, area, email, pais, salario) values (503, 'Consalve Carnduff', 'Sales', 'ccarnduffdy@cocolog-nifty.com', 'Bolivia', 5438);
+insert into empleado (id, nombre, area, email, pais, salario) values (504, 'Pip Rackham', 'Engineering', 'prackhamdz@cargocollective.com', 'Peru', 9746);
+insert into empleado (id, nombre, area, email, pais, salario) values (505, 'Daron Pepon', 'Engineering', 'dpepone0@bbc.co.uk', 'Mexico', 5540);
+insert into empleado (id, nombre, area, email, pais, salario) values (506, 'Emmeline Dittson', 'Business Development', 'edittsone1@liveinternet.ru', 'Mexico', 6976);
+insert into empleado (id, nombre, area, email, pais, salario) values (507, 'Marven Leemans', 'Services', 'mleemanse2@omniture.com', 'Peru', 561);
+insert into empleado (id, nombre, area, email, pais, salario) values (508, 'Lia Padmore', 'Legal', 'lpadmoree3@yellowbook.com', 'Chile', 5533);
+insert into empleado (id, nombre, area, email, pais, salario) values (509, 'Phoebe Knight', 'Accounting', 'pknighte4@springer.com', 'Argentina', 4159);
+insert into empleado (id, nombre, area, email, pais, salario) values (510, 'Alicia Mion', 'Human Resources', 'amione5@intel.com', 'Bolivia', 1555);
+insert into empleado (id, nombre, area, email, pais, salario) values (511, 'Sawyer Bangle', 'Sales', 'sbanglee6@phpbb.com', 'Uruguay', 8253);
+insert into empleado (id, nombre, area, email, pais, salario) values (512, 'Robb Feldmark', 'Training', 'rfeldmarke7@cnn.com', 'Argentina', 2370);
+insert into empleado (id, nombre, area, email, pais, salario) values (513, 'Ami Aaronsohn', 'Research and Development', 'aaaronsohne8@auda.org.au', 'Bolivia', 4264);
+insert into empleado (id, nombre, area, email, pais, salario) values (514, 'Roseann Cady', 'Engineering', 'rcadye9@so-net.ne.jp', 'Colombia', 1557);
+insert into empleado (id, nombre, area, email, pais, salario) values (515, 'Robbi McKillop', 'Product Management', 'rmckillopea@desdev.cn', 'Argentina', 641);
+insert into empleado (id, nombre, area, email, pais, salario) values (516, 'Cecilius Truder', 'Services', 'ctrudereb@blogtalkradio.com', 'Bolivia', 8927);
+insert into empleado (id, nombre, area, email, pais, salario) values (517, 'Kelsy Paula', 'Sales', 'kpaulaec@feedburner.com', 'Colombia', 8200);
+insert into empleado (id, nombre, area, email, pais, salario) values (518, 'Zora Devereux', 'Accounting', 'zdevereuxed@theguardian.com', 'Chile', 3877);
+insert into empleado (id, nombre, area, email, pais, salario) values (519, 'Corliss Bengochea', 'Business Development', 'cbengocheaee@prlog.org', 'Colombia', 9008);
+insert into empleado (id, nombre, area, email, pais, salario) values (520, 'Bernadina Gerran', 'Services', 'bgerranef@mac.com', 'Peru', 2106);
+insert into empleado (id, nombre, area, email, pais, salario) values (521, 'Padget Sanday', 'Research and Development', 'psandayeg@seesaa.net', 'Mexico', 2648);
+insert into empleado (id, nombre, area, email, pais, salario) values (522, 'Sada Braghini', 'Engineering', 'sbraghinieh@discovery.com', 'Mexico', 8379);
+insert into empleado (id, nombre, area, email, pais, salario) values (523, 'Genovera Keyser', 'Training', 'gkeyserei@sitemeter.com', 'Argentina', 6415);
+insert into empleado (id, nombre, area, email, pais, salario) values (524, 'Kahlil Scranedge', 'Services', 'kscranedgeej@webeden.co.uk', 'Colombia', 2618);
+insert into empleado (id, nombre, area, email, pais, salario) values (525, 'Mercedes Brockherst', 'Business Development', 'mbrockherstek@auda.org.au', 'Argentina', 694);
+insert into empleado (id, nombre, area, email, pais, salario) values (526, 'Sande Gemson', 'Training', 'sgemsonel@telegraph.co.uk', 'Mexico', 8259);
+insert into empleado (id, nombre, area, email, pais, salario) values (527, 'Leland Bartelet', 'Services', 'lbarteletem@scientificamerican.com', 'Peru', 5269);
+insert into empleado (id, nombre, area, email, pais, salario) values (528, 'Bobbette Morch', 'Accounting', 'bmorchen@amazon.com', 'Mexico', 5871);
+insert into empleado (id, nombre, area, email, pais, salario) values (529, 'Jennee Royal', 'Sales', 'jroyaleo@cisco.com', 'Mexico', 781);
+insert into empleado (id, nombre, area, email, pais, salario) values (530, 'Maureene Govinlock', 'Accounting', 'mgovinlockep@ihg.com', 'Mexico', 3102);
+insert into empleado (id, nombre, area, email, pais, salario) values (531, 'Elijah Silverthorne', 'Engineering', 'esilverthorneeq@tinypic.com', 'Colombia', 4319);
+insert into empleado (id, nombre, area, email, pais, salario) values (532, 'Michale Erickssen', 'Training', 'merickssener@sohu.com', 'Peru', 5276);
+insert into empleado (id, nombre, area, email, pais, salario) values (533, 'Jessica Swinyard', 'Legal', 'jswinyardes@cafepress.com', 'Peru', 1405);
+insert into empleado (id, nombre, area, email, pais, salario) values (534, 'Briana Spragge', 'Services', 'bspraggeet@livejournal.com', 'Argentina', 8342);
+insert into empleado (id, nombre, area, email, pais, salario) values (535, 'Breanne Metherell', 'Engineering', 'bmetherelleu@printfriendly.com', 'Argentina', 4464);
+insert into empleado (id, nombre, area, email, pais, salario) values (536, 'Sandy Sandercroft', 'Services', 'ssandercroftev@usgs.gov', 'Spain', 6383);
+insert into empleado (id, nombre, area, email, pais, salario) values (537, 'Marion Spenceley', 'Sales', 'mspenceleyew@patch.com', 'Argentina', 748);
+insert into empleado (id, nombre, area, email, pais, salario) values (538, 'Leonie Hugk', 'Product Management', 'lhugkex@ycombinator.com', 'Colombia', 5670);
+insert into empleado (id, nombre, area, email, pais, salario) values (539, 'Hestia Schimmang', 'Legal', 'hschimmangey@fc2.com', 'Mexico', 9245);
+insert into empleado (id, nombre, area, email, pais, salario) values (540, 'Jenni Marton', 'Legal', 'jmartonez@buzzfeed.com', 'Chile', 4486);
+insert into empleado (id, nombre, area, email, pais, salario) values (541, 'Emlynn Lacrouts', 'Services', 'elacroutsf0@hugedomains.com', 'Colombia', 5048);
+insert into empleado (id, nombre, area, email, pais, salario) values (542, 'Matias Pebworth', 'Services', 'mpebworthf1@cargocollective.com', 'Colombia', 5863);
+insert into empleado (id, nombre, area, email, pais, salario) values (543, 'Clement Ellery', 'Training', 'celleryf2@twitpic.com', 'Argentina', 1107);
+insert into empleado (id, nombre, area, email, pais, salario) values (544, 'Maribel Brightling', 'Business Development', 'mbrightlingf3@latimes.com', 'Colombia', 134);
+insert into empleado (id, nombre, area, email, pais, salario) values (545, 'Bree Giraudat', 'Product Management', 'bgiraudatf4@kickstarter.com', 'Peru', 7601);
+insert into empleado (id, nombre, area, email, pais, salario) values (546, 'Tobit Rains', 'Support', 'trainsf5@desdev.cn', 'Peru', 8987);
+insert into empleado (id, nombre, area, email, pais, salario) values (547, 'Tawsha Trayton', 'Support', 'ttraytonf6@utexas.edu', 'Peru', 6277);
+insert into empleado (id, nombre, area, email, pais, salario) values (548, 'Dahlia Batkin', 'Human Resources', 'dbatkinf7@bloomberg.com', 'Argentina', 1731);
+insert into empleado (id, nombre, area, email, pais, salario) values (549, 'Darrick Duffree', 'Product Management', 'dduffreef8@sun.com', 'Argentina', 3462);
+insert into empleado (id, nombre, area, email, pais, salario) values (550, 'Micaela Alebrooke', 'Legal', 'malebrookef9@berkeley.edu', 'Peru', 3609);
+insert into empleado (id, nombre, area, email, pais, salario) values (551, 'Tracey Jackalin', 'Services', 'tjackalinfa@goo.ne.jp', 'Mexico', 8237);
+insert into empleado (id, nombre, area, email, pais, salario) values (552, 'Rupert Stronge', 'Product Management', 'rstrongefb@jiathis.com', 'Mexico', 8850);
+insert into empleado (id, nombre, area, email, pais, salario) values (553, 'Torr Scarrott', 'Business Development', 'tscarrottfc@columbia.edu', 'Peru', 6495);
+insert into empleado (id, nombre, area, email, pais, salario) values (554, 'Ibbie Bru', 'Accounting', 'ibrufd@chronoengine.com', 'Colombia', 1045);
+insert into empleado (id, nombre, area, email, pais, salario) values (555, 'Thurston Rosenkranc', 'Human Resources', 'trosenkrancfe@scientificamerican.com', 'Peru', 5858);
+insert into empleado (id, nombre, area, email, pais, salario) values (556, 'Penelopa Gilberthorpe', 'Business Development', 'pgilberthorpeff@china.com.cn', 'Colombia', 4183);
+insert into empleado (id, nombre, area, email, pais, salario) values (557, 'Cristina Cowill', 'Product Management', 'ccowillfg@seesaa.net', 'Bolivia', 188);
+insert into empleado (id, nombre, area, email, pais, salario) values (558, 'Catlee Ambrogioli', 'Sales', 'cambrogiolifh@symantec.com', 'Colombia', 7486);
+insert into empleado (id, nombre, area, email, pais, salario) values (559, 'Margaux Harrild', 'Sales', 'mharrildfi@berkeley.edu', 'Colombia', 3166);
+insert into empleado (id, nombre, area, email, pais, salario) values (560, 'Duncan Dibben', 'Engineering', 'ddibbenfj@theglobeandmail.com', 'Mexico', 3832);
+insert into empleado (id, nombre, area, email, pais, salario) values (561, 'Davy Dace', 'Research and Development', 'ddacefk@fotki.com', 'Colombia', 7463);
+insert into empleado (id, nombre, area, email, pais, salario) values (562, 'Carissa Kilgrove', 'Research and Development', 'ckilgrovefl@icio.us', 'Argentina', 4325);
+insert into empleado (id, nombre, area, email, pais, salario) values (563, 'Hesther Howatt', 'Services', 'hhowattfm@senate.gov', 'Argentina', 7);
+insert into empleado (id, nombre, area, email, pais, salario) values (564, 'Rebeka Grishagin', 'Training', 'rgrishaginfn@fc2.com', 'Argentina', 1848);
+insert into empleado (id, nombre, area, email, pais, salario) values (565, 'Victoir Duchesne', 'Product Management', 'vduchesnefo@nymag.com', 'Peru', 4639);
+insert into empleado (id, nombre, area, email, pais, salario) values (566, 'Katerina Kennedy', 'Research and Development', 'kkennedyfp@rediff.com', 'Colombia', 4713);
+insert into empleado (id, nombre, area, email, pais, salario) values (567, 'Aldwin Lardier', 'Product Management', 'alardierfq@pcworld.com', 'Colombia', 241);
+insert into empleado (id, nombre, area, email, pais, salario) values (568, 'Birk Gurge', 'Human Resources', 'bgurgefr@dropbox.com', 'Argentina', 4667);
+insert into empleado (id, nombre, area, email, pais, salario) values (569, 'Evyn Deinhard', 'Accounting', 'edeinhardfs@soundcloud.com', 'Argentina', 337);
+insert into empleado (id, nombre, area, email, pais, salario) values (570, 'Karoly Beels', 'Support', 'kbeelsft@example.com', 'Spain', 5911);
+insert into empleado (id, nombre, area, email, pais, salario) values (571, 'Ronnica Frewer', 'Sales', 'rfrewerfu@tiny.cc', 'Peru', 7151);
+insert into empleado (id, nombre, area, email, pais, salario) values (572, 'Juditha Duinkerk', 'Research and Development', 'jduinkerkfv@feedburner.com', 'Colombia', 5222);
+insert into empleado (id, nombre, area, email, pais, salario) values (573, 'Belia Rosenbusch', 'Human Resources', 'brosenbuschfw@smh.com.au', 'Argentina', 5508);
+insert into empleado (id, nombre, area, email, pais, salario) values (574, 'Sherman Strase', 'Services', 'sstrasefx@elpais.com', 'Argentina', 4329);
+insert into empleado (id, nombre, area, email, pais, salario) values (575, 'Aaren Beddo', 'Training', 'abeddofy@narod.ru', 'Peru', 8409);
+insert into empleado (id, nombre, area, email, pais, salario) values (576, 'Jeannie Picken', 'Business Development', 'jpickenfz@dailymotion.com', 'Colombia', 995);
+insert into empleado (id, nombre, area, email, pais, salario) values (577, 'Wakefield Trulocke', 'Legal', 'wtrulockeg0@state.gov', 'Colombia', 3500);
+insert into empleado (id, nombre, area, email, pais, salario) values (578, 'Dreddy Waiting', 'Business Development', 'dwaitingg1@infoseek.co.jp', 'Uruguay', 2563);
+insert into empleado (id, nombre, area, email, pais, salario) values (579, 'Aldric Tombs', 'Accounting', 'atombsg2@google.de', 'Mexico', 6111);
+insert into empleado (id, nombre, area, email, pais, salario) values (580, 'Tanner Tune', 'Accounting', 'ttuneg3@theguardian.com', 'Spain', 3835);
+insert into empleado (id, nombre, area, email, pais, salario) values (581, 'Conni Yesichev', 'Support', 'cyesichevg4@businessweek.com', 'Colombia', 7133);
+insert into empleado (id, nombre, area, email, pais, salario) values (582, 'Blancha Columbell', 'Accounting', 'bcolumbellg5@4shared.com', 'Argentina', 5061);
+insert into empleado (id, nombre, area, email, pais, salario) values (583, 'Basil Tunaclift', 'Training', 'btunacliftg6@prweb.com', 'Peru', 2990);
+insert into empleado (id, nombre, area, email, pais, salario) values (584, 'Montague Gorcke', 'Marketing', 'mgorckeg7@wikispaces.com', 'Colombia', 79);
+insert into empleado (id, nombre, area, email, pais, salario) values (585, 'Alexis Schubart', 'Research and Development', 'aschubartg8@tinyurl.com', 'Argentina', 3913);
+insert into empleado (id, nombre, area, email, pais, salario) values (586, 'Alfy MacLeese', 'Engineering', 'amacleeseg9@bandcamp.com', 'Mexico', 9906);
+insert into empleado (id, nombre, area, email, pais, salario) values (587, 'Lemmie Shatliff', 'Services', 'lshatliffga@about.me', 'Mexico', 4788);
+insert into empleado (id, nombre, area, email, pais, salario) values (588, 'Simona Bess', 'Research and Development', 'sbessgb@sourceforge.net', 'Colombia', 212);
+insert into empleado (id, nombre, area, email, pais, salario) values (589, 'Holly Loxdale', 'Research and Development', 'hloxdalegc@illinois.edu', 'Argentina', 2471);
+insert into empleado (id, nombre, area, email, pais, salario) values (590, 'Athene Budget', 'Engineering', 'abudgetgd@last.fm', 'Mexico', 6427);
+insert into empleado (id, nombre, area, email, pais, salario) values (591, 'Amabel Ewart', 'Services', 'aewartge@bravesites.com', 'Colombia', 5365);
+insert into empleado (id, nombre, area, email, pais, salario) values (592, 'Gunner Cianni', 'Sales', 'gciannigf@nytimes.com', 'Argentina', 5616);
+insert into empleado (id, nombre, area, email, pais, salario) values (593, 'Kory Hallibone', 'Support', 'khallibonegg@homestead.com', 'Spain', 6122);
+insert into empleado (id, nombre, area, email, pais, salario) values (594, 'Rivi Dybald', 'Services', 'rdybaldgh@goo.ne.jp', 'Colombia', 9382);
+insert into empleado (id, nombre, area, email, pais, salario) values (595, 'Danyelle Haggie', 'Accounting', 'dhaggiegi@ovh.net', 'Colombia', 2700);
+insert into empleado (id, nombre, area, email, pais, salario) values (596, 'Cleveland Paoletti', 'Product Management', 'cpaolettigj@parallels.com', 'Colombia', 1929);
+insert into empleado (id, nombre, area, email, pais, salario) values (597, 'Rivi Cawsey', 'Marketing', 'rcawseygk@rediff.com', 'Argentina', 4648);
+insert into empleado (id, nombre, area, email, pais, salario) values (598, 'Jaymee Rhymer', 'Engineering', 'jrhymergl@google.com', 'Peru', 6652);
+insert into empleado (id, nombre, area, email, pais, salario) values (599, 'Maegan Berthome', 'Product Management', 'mberthomegm@wufoo.com', 'Colombia', 1357);
+insert into empleado (id, nombre, area, email, pais, salario) values (600, 'Cornelia Partington', 'Accounting', 'cpartingtongn@umich.edu', 'Argentina', 3837);
+insert into empleado (id, nombre, area, email, pais, salario) values (601, 'Helaina Brigshaw', 'Human Resources', 'hbrigshawgo@mapquest.com', 'Argentina', 5775);
+insert into empleado (id, nombre, area, email, pais, salario) values (602, 'Abramo Blackway', 'Research and Development', 'ablackwaygp@mtv.com', 'Peru', 5359);
+insert into empleado (id, nombre, area, email, pais, salario) values (603, 'Andrei Ivatts', 'Research and Development', 'aivattsgq@tamu.edu', 'Argentina', 4232);
+insert into empleado (id, nombre, area, email, pais, salario) values (604, 'Linzy Tarbert', 'Support', 'ltarbertgr@wunderground.com', 'Mexico', 7657);
+insert into empleado (id, nombre, area, email, pais, salario) values (605, 'Marabel Ruf', 'Product Management', 'mrufgs@go.com', 'Colombia', 6026);
+insert into empleado (id, nombre, area, email, pais, salario) values (606, 'Mikkel Roffe', 'Support', 'mroffegt@liveinternet.ru', 'Mexico', 83);
+insert into empleado (id, nombre, area, email, pais, salario) values (607, 'Steffane McGeady', 'Business Development', 'smcgeadygu@jigsy.com', 'Colombia', 8869);
+insert into empleado (id, nombre, area, email, pais, salario) values (608, 'Moreen Janton', 'Training', 'mjantongv@google.nl', 'Argentina', 2177);
+insert into empleado (id, nombre, area, email, pais, salario) values (609, 'Richart Gaythorpe', 'Sales', 'rgaythorpegw@geocities.jp', 'Mexico', 8680);
+insert into empleado (id, nombre, area, email, pais, salario) values (610, 'Max Gandley', 'Legal', 'mgandleygx@buzzfeed.com', 'Peru', 5114);
+insert into empleado (id, nombre, area, email, pais, salario) values (611, 'Eugenia Bonifacio', 'Human Resources', 'ebonifaciogy@economist.com', 'Argentina', 835);
+insert into empleado (id, nombre, area, email, pais, salario) values (612, 'Prisca Janak', 'Training', 'pjanakgz@smh.com.au', 'Peru', 1458);
+insert into empleado (id, nombre, area, email, pais, salario) values (613, 'Vanda MacGray', 'Support', 'vmacgrayh0@taobao.com', 'Peru', 5652);
+insert into empleado (id, nombre, area, email, pais, salario) values (614, 'Carter Coate', 'Sales', 'ccoateh1@netscape.com', 'Peru', 7680);
+insert into empleado (id, nombre, area, email, pais, salario) values (615, 'Darrin Eite', 'Marketing', 'deiteh2@acquirethisname.com', 'Peru', 323);
+insert into empleado (id, nombre, area, email, pais, salario) values (616, 'Daile Gouck', 'Engineering', 'dgouckh3@xing.com', 'Mexico', 7047);
+insert into empleado (id, nombre, area, email, pais, salario) values (617, 'Alvan Castillou', 'Human Resources', 'acastillouh4@berkeley.edu', 'Chile', 8647);
+insert into empleado (id, nombre, area, email, pais, salario) values (618, 'Nerte MacHostie', 'Training', 'nmachostieh5@creativecommons.org', 'Colombia', 280);
+insert into empleado (id, nombre, area, email, pais, salario) values (619, 'Mellicent Dulling', 'Marketing', 'mdullingh6@etsy.com', 'Spain', 7205);
+insert into empleado (id, nombre, area, email, pais, salario) values (620, 'Filberte Force', 'Human Resources', 'fforceh7@example.com', 'Argentina', 4376);
+insert into empleado (id, nombre, area, email, pais, salario) values (621, 'Daryl Murrie', 'Support', 'dmurrieh8@miitbeian.gov.cn', 'Argentina', 2902);
+insert into empleado (id, nombre, area, email, pais, salario) values (622, 'Eugenio Ralls', 'Accounting', 'erallsh9@ted.com', 'Peru', 2448);
+insert into empleado (id, nombre, area, email, pais, salario) values (623, 'Rees Preddle', 'Product Management', 'rpreddleha@google.com.hk', 'Peru', 3673);
+insert into empleado (id, nombre, area, email, pais, salario) values (624, 'Silvan Demoge', 'Support', 'sdemogehb@yale.edu', 'Argentina', 387);
+insert into empleado (id, nombre, area, email, pais, salario) values (625, 'Levin Drains', 'Business Development', 'ldrainshc@wix.com', 'Bolivia', 9479);
+insert into empleado (id, nombre, area, email, pais, salario) values (626, 'Redford Fisher', 'Engineering', 'rfisherhd@who.int', 'Argentina', 8661);
+insert into empleado (id, nombre, area, email, pais, salario) values (627, 'Lynea Crowdy', 'Human Resources', 'lcrowdyhe@marketwatch.com', 'Colombia', 4157);
+insert into empleado (id, nombre, area, email, pais, salario) values (628, 'Oberon MacNucator', 'Training', 'omacnucatorhf@ibm.com', 'Colombia', 4056);
+insert into empleado (id, nombre, area, email, pais, salario) values (629, 'Shoshanna Kynston', 'Engineering', 'skynstonhg@amazon.de', 'Peru', 1706);
+insert into empleado (id, nombre, area, email, pais, salario) values (630, 'Natal Stoffels', 'Sales', 'nstoffelshh@loc.gov', 'Argentina', 7829);
+insert into empleado (id, nombre, area, email, pais, salario) values (631, 'Gretel Huggins', 'Legal', 'ghugginshi@is.gd', 'Mexico', 9208);
+insert into empleado (id, nombre, area, email, pais, salario) values (632, 'Bronnie Portwaine', 'Engineering', 'bportwainehj@blogspot.com', 'Peru', 7427);
+insert into empleado (id, nombre, area, email, pais, salario) values (633, 'Carson Berndtsson', 'Engineering', 'cberndtssonhk@google.fr', 'Uruguay', 3403);
+insert into empleado (id, nombre, area, email, pais, salario) values (634, 'Jillian Bartlam', 'Business Development', 'jbartlamhl@smugmug.com', 'Argentina', 176);
+insert into empleado (id, nombre, area, email, pais, salario) values (635, 'Lily Rice', 'Human Resources', 'lricehm@ucla.edu', 'Colombia', 5161);
+insert into empleado (id, nombre, area, email, pais, salario) values (636, 'Richard Landor', 'Legal', 'rlandorhn@amazon.de', 'Peru', 1889);
+insert into empleado (id, nombre, area, email, pais, salario) values (637, 'Raine Canedo', 'Sales', 'rcanedoho@1688.com', 'Mexico', 3590);
+insert into empleado (id, nombre, area, email, pais, salario) values (638, 'Saraann Slocom', 'Legal', 'sslocomhp@ebay.com', 'Argentina', 4231);
+insert into empleado (id, nombre, area, email, pais, salario) values (639, 'Lenora Rove', 'Engineering', 'lrovehq@merriam-webster.com', 'Peru', 7828);
+insert into empleado (id, nombre, area, email, pais, salario) values (640, 'Myriam Peaple', 'Training', 'mpeaplehr@squarespace.com', 'Mexico', 9721);
+insert into empleado (id, nombre, area, email, pais, salario) values (641, 'Kendra Sinyard', 'Support', 'ksinyardhs@posterous.com', 'Peru', 2114);
+insert into empleado (id, nombre, area, email, pais, salario) values (642, 'Lilian Dunthorn', 'Accounting', 'ldunthornht@chicagotribune.com', 'Bolivia', 8960);
+insert into empleado (id, nombre, area, email, pais, salario) values (643, 'Carine Insole', 'Product Management', 'cinsolehu@fc2.com', 'Peru', 360);
+insert into empleado (id, nombre, area, email, pais, salario) values (644, 'Shepherd Gohn', 'Business Development', 'sgohnhv@meetup.com', 'Colombia', 5432);
+insert into empleado (id, nombre, area, email, pais, salario) values (645, 'Wandis Basill', 'Services', 'wbasillhw@friendfeed.com', 'Mexico', 5155);
+insert into empleado (id, nombre, area, email, pais, salario) values (646, 'Berton Smidmor', 'Engineering', 'bsmidmorhx@wordpress.org', 'Colombia', 7507);
+insert into empleado (id, nombre, area, email, pais, salario) values (647, 'Lotty Gerriessen', 'Engineering', 'lgerriessenhy@ycombinator.com', 'Colombia', 9224);
+insert into empleado (id, nombre, area, email, pais, salario) values (648, 'Lemmie Mandifield', 'Human Resources', 'lmandifieldhz@163.com', 'Mexico', 9603);
+insert into empleado (id, nombre, area, email, pais, salario) values (649, 'Kennan Pedler', 'Legal', 'kpedleri0@walmart.com', 'Peru', 6919);
+insert into empleado (id, nombre, area, email, pais, salario) values (650, 'Bram Rispine', 'Product Management', 'brispinei1@jugem.jp', 'Argentina', 6932);
+insert into empleado (id, nombre, area, email, pais, salario) values (651, 'Nanette Furzey', 'Support', 'nfurzeyi2@spiegel.de', 'Chile', 8094);
+insert into empleado (id, nombre, area, email, pais, salario) values (652, 'Suki Esberger', 'Services', 'sesbergeri3@nifty.com', 'Colombia', 2276);
+insert into empleado (id, nombre, area, email, pais, salario) values (653, 'Booth Gribbins', 'Legal', 'bgribbinsi4@theguardian.com', 'Colombia', 6678);
+insert into empleado (id, nombre, area, email, pais, salario) values (654, 'Kaitlyn Stennine', 'Services', 'kstenninei5@google.ca', 'Argentina', 7747);
+insert into empleado (id, nombre, area, email, pais, salario) values (655, 'Rose Pren', 'Sales', 'rpreni6@dot.gov', 'Colombia', 2966);
+insert into empleado (id, nombre, area, email, pais, salario) values (656, 'Shelby Challen', 'Sales', 'schalleni7@spiegel.de', 'Spain', 7565);
+insert into empleado (id, nombre, area, email, pais, salario) values (657, 'Chickie Flaherty', 'Product Management', 'cflahertyi8@people.com.cn', 'Argentina', 9299);
+insert into empleado (id, nombre, area, email, pais, salario) values (658, 'Francoise Corkhill', 'Accounting', 'fcorkhilli9@who.int', 'Argentina', 4643);
+insert into empleado (id, nombre, area, email, pais, salario) values (659, 'Nedi Rigardeau', 'Legal', 'nrigardeauia@ihg.com', 'Mexico', 8346);
+insert into empleado (id, nombre, area, email, pais, salario) values (660, 'Trudy Graundisson', 'Training', 'tgraundissonib@psu.edu', 'Argentina', 5451);
+insert into empleado (id, nombre, area, email, pais, salario) values (661, 'Emmery Corneille', 'Legal', 'ecorneilleic@people.com.cn', 'Argentina', 95);
+insert into empleado (id, nombre, area, email, pais, salario) values (662, 'Alexina Chetwind', 'Services', 'achetwindid@ow.ly', 'Peru', 603);
+insert into empleado (id, nombre, area, email, pais, salario) values (663, 'April Fiennes', 'Accounting', 'afiennesie@cornell.edu', 'Argentina', 2057);
+insert into empleado (id, nombre, area, email, pais, salario) values (664, 'Whitney Gauler', 'Services', 'wgaulerif@newyorker.com', 'Argentina', 9658);
+insert into empleado (id, nombre, area, email, pais, salario) values (665, 'Clemence Wagenen', 'Engineering', 'cwagenenig@slashdot.org', 'Colombia', 5799);
+insert into empleado (id, nombre, area, email, pais, salario) values (666, 'Penelopa Dalgarnowch', 'Legal', 'pdalgarnowchih@amazon.de', 'Colombia', 4388);
+insert into empleado (id, nombre, area, email, pais, salario) values (667, 'Millicent Rey', 'Sales', 'mreyii@tmall.com', 'Colombia', 7615);
+insert into empleado (id, nombre, area, email, pais, salario) values (668, 'Gretta McKeighan', 'Sales', 'gmckeighanij@geocities.jp', 'Argentina', 4636);
+insert into empleado (id, nombre, area, email, pais, salario) values (669, 'Latrina Brosius', 'Marketing', 'lbrosiusik@goo.ne.jp', 'Argentina', 7462);
+insert into empleado (id, nombre, area, email, pais, salario) values (670, 'Gael Bamber', 'Services', 'gbamberil@pen.io', 'Colombia', 1922);
+insert into empleado (id, nombre, area, email, pais, salario) values (671, 'Eddi Dupree', 'Training', 'edupreeim@barnesandnoble.com', 'Colombia', 6215);
+insert into empleado (id, nombre, area, email, pais, salario) values (672, 'Benn Petroff', 'Product Management', 'bpetroffin@mediafire.com', 'Peru', 9880);
+insert into empleado (id, nombre, area, email, pais, salario) values (673, 'Dulcie Gatman', 'Marketing', 'dgatmanio@illinois.edu', 'Peru', 6821);
+insert into empleado (id, nombre, area, email, pais, salario) values (674, 'De Joder', 'Training', 'djoderip@vistaprint.com', 'Argentina', 2889);
+insert into empleado (id, nombre, area, email, pais, salario) values (675, 'Ilka Sturte', 'Business Development', 'isturteiq@ezinearticles.com', 'Argentina', 1496);
+insert into empleado (id, nombre, area, email, pais, salario) values (676, 'Leland Naton', 'Sales', 'lnatonir@bbc.co.uk', 'Argentina', 1605);
+insert into empleado (id, nombre, area, email, pais, salario) values (677, 'Nesta Rubinovitch', 'Business Development', 'nrubinovitchis@opera.com', 'Colombia', 3014);
+insert into empleado (id, nombre, area, email, pais, salario) values (678, 'Rafaello Kinforth', 'Business Development', 'rkinforthit@dell.com', 'Colombia', 5232);
+insert into empleado (id, nombre, area, email, pais, salario) values (679, 'Jennifer Baudain', 'Legal', 'jbaudainiu@miibeian.gov.cn', 'Peru', 1499);
+insert into empleado (id, nombre, area, email, pais, salario) values (680, 'Sande Tabour', 'Legal', 'stabouriv@ifeng.com', 'Peru', 5726);
+insert into empleado (id, nombre, area, email, pais, salario) values (681, 'Davina Oldis', 'Product Management', 'doldisiw@cam.ac.uk', 'Uruguay', 179);
+insert into empleado (id, nombre, area, email, pais, salario) values (682, 'Aura Clewlowe', 'Business Development', 'aclewloweix@accuweather.com', 'Chile', 9139);
+insert into empleado (id, nombre, area, email, pais, salario) values (683, 'Archer Longworthy', 'Sales', 'alongworthyiy@nifty.com', 'Argentina', 4511);
+insert into empleado (id, nombre, area, email, pais, salario) values (684, 'Felizio Antalffy', 'Training', 'fantalffyiz@craigslist.org', 'Peru', 4223);
+insert into empleado (id, nombre, area, email, pais, salario) values (685, 'Marcile Strond', 'Accounting', 'mstrondj0@fc2.com', 'Uruguay', 76);
+insert into empleado (id, nombre, area, email, pais, salario) values (686, 'Sergeant Ferreira', 'Legal', 'sferreiraj1@usnews.com', 'Peru', 1069);
+insert into empleado (id, nombre, area, email, pais, salario) values (687, 'Allyn Burras', 'Training', 'aburrasj2@statcounter.com', 'Argentina', 6820);
+insert into empleado (id, nombre, area, email, pais, salario) values (688, 'Warden Marking', 'Business Development', 'wmarkingj3@dot.gov', 'Colombia', 8942);
+insert into empleado (id, nombre, area, email, pais, salario) values (689, 'Ninon Christal', 'Sales', 'nchristalj4@biblegateway.com', 'Colombia', 1907);
+insert into empleado (id, nombre, area, email, pais, salario) values (690, 'Almeta Heinsen', 'Legal', 'aheinsenj5@blog.com', 'Peru', 9713);
+insert into empleado (id, nombre, area, email, pais, salario) values (691, 'Pat Tash', 'Product Management', 'ptashj6@example.com', 'Peru', 8143);
+insert into empleado (id, nombre, area, email, pais, salario) values (692, 'Seth Domenge', 'Services', 'sdomengej7@cmu.edu', 'Colombia', 8519);
+insert into empleado (id, nombre, area, email, pais, salario) values (693, 'Hashim Fassman', 'Human Resources', 'hfassmanj8@omniture.com', 'Bolivia', 3610);
+insert into empleado (id, nombre, area, email, pais, salario) values (694, 'Archibold Gobel', 'Accounting', 'agobelj9@hatena.ne.jp', 'Peru', 4642);
+insert into empleado (id, nombre, area, email, pais, salario) values (695, 'Adrianne Gianolini', 'Services', 'agianolinija@deliciousdays.com', 'Peru', 2357);
+insert into empleado (id, nombre, area, email, pais, salario) values (696, 'Ginger Ranyelld', 'Business Development', 'granyelldjb@goo.ne.jp', 'Peru', 3481);
+insert into empleado (id, nombre, area, email, pais, salario) values (697, 'Spense Gantley', 'Research and Development', 'sgantleyjc@elegantthemes.com', 'Colombia', 9004);
+insert into empleado (id, nombre, area, email, pais, salario) values (698, 'Andee LLelweln', 'Accounting', 'allelwelnjd@nationalgeographic.com', 'Mexico', 650);
+insert into empleado (id, nombre, area, email, pais, salario) values (699, 'Yvor Tourville', 'Research and Development', 'ytourvilleje@amazonaws.com', 'Colombia', 5695);
+insert into empleado (id, nombre, area, email, pais, salario) values (700, 'Emelia Gisborne', 'Engineering', 'egisbornejf@oakley.com', 'Colombia', 4939);
+insert into empleado (id, nombre, area, email, pais, salario) values (701, 'Dallis Briddle', 'Training', 'dbriddlejg@ft.com', 'Bolivia', 5612);
+insert into empleado (id, nombre, area, email, pais, salario) values (702, 'Kary Stotherfield', 'Accounting', 'kstotherfieldjh@gizmodo.com', 'Peru', 4500);
+insert into empleado (id, nombre, area, email, pais, salario) values (703, 'Davide Greschik', 'Legal', 'dgreschikji@ifeng.com', 'Colombia', 8560);
+insert into empleado (id, nombre, area, email, pais, salario) values (704, 'Johnath Caulket', 'Accounting', 'jcaulketjj@rambler.ru', 'Spain', 3933);
+insert into empleado (id, nombre, area, email, pais, salario) values (705, 'Katina Kettleson', 'Services', 'kkettlesonjk@trellian.com', 'Argentina', 260);
+insert into empleado (id, nombre, area, email, pais, salario) values (706, 'Webster Dominique', 'Services', 'wdominiquejl@who.int', 'Peru', 5035);
+insert into empleado (id, nombre, area, email, pais, salario) values (707, 'Gun Von Helmholtz', 'Research and Development', 'gvonjm@networksolutions.com', 'Chile', 3753);
+insert into empleado (id, nombre, area, email, pais, salario) values (708, 'Maddie Sealand', 'Business Development', 'msealandjn@buzzfeed.com', 'Mexico', 8251);
+insert into empleado (id, nombre, area, email, pais, salario) values (709, 'Mallorie Mitham', 'Research and Development', 'mmithamjo@domainmarket.com', 'Argentina', 4209);
+insert into empleado (id, nombre, area, email, pais, salario) values (710, 'Colby Vicary', 'Accounting', 'cvicaryjp@elegantthemes.com', 'Mexico', 3775);
+insert into empleado (id, nombre, area, email, pais, salario) values (711, 'Geralda Hansford', 'Sales', 'ghansfordjq@bing.com', 'Colombia', 2742);
+insert into empleado (id, nombre, area, email, pais, salario) values (712, 'Imogen Peaden', 'Training', 'ipeadenjr@arstechnica.com', 'Spain', 1037);
+insert into empleado (id, nombre, area, email, pais, salario) values (713, 'Rodrigo Waltering', 'Research and Development', 'rwalteringjs@nih.gov', 'Colombia', 4351);
+insert into empleado (id, nombre, area, email, pais, salario) values (714, 'Elfrida Hinge', 'Research and Development', 'ehingejt@delicious.com', 'Argentina', 6611);
+insert into empleado (id, nombre, area, email, pais, salario) values (715, 'Adam Hebner', 'Human Resources', 'ahebnerju@bluehost.com', 'Argentina', 2099);
+insert into empleado (id, nombre, area, email, pais, salario) values (716, 'Mitch Gomes', 'Training', 'mgomesjv@1688.com', 'Mexico', 736);
+insert into empleado (id, nombre, area, email, pais, salario) values (717, 'Gabe Blundan', 'Business Development', 'gblundanjw@ca.gov', 'Peru', 6844);
+insert into empleado (id, nombre, area, email, pais, salario) values (718, 'Haroun Martugin', 'Business Development', 'hmartuginjx@digg.com', 'Argentina', 5104);
+insert into empleado (id, nombre, area, email, pais, salario) values (719, 'Louisa Schutte', 'Research and Development', 'lschuttejy@pen.io', 'Colombia', 6373);
+insert into empleado (id, nombre, area, email, pais, salario) values (720, 'Gardiner Cosser', 'Services', 'gcosserjz@bing.com', 'Mexico', 1052);
+insert into empleado (id, nombre, area, email, pais, salario) values (721, 'Ginevra Redgrave', 'Support', 'gredgravek0@guardian.co.uk', 'Argentina', 6253);
+insert into empleado (id, nombre, area, email, pais, salario) values (722, 'Webb Petre', 'Legal', 'wpetrek1@ning.com', 'Peru', 6506);
+insert into empleado (id, nombre, area, email, pais, salario) values (723, 'Brody Attenbrough', 'Engineering', 'battenbroughk2@artisteer.com', 'Peru', 5489);
+insert into empleado (id, nombre, area, email, pais, salario) values (724, 'Christabel Rymell', 'Support', 'crymellk3@ihg.com', 'Colombia', 8540);
+insert into empleado (id, nombre, area, email, pais, salario) values (725, 'Adham Kedward', 'Marketing', 'akedwardk4@hud.gov', 'Colombia', 2962);
+insert into empleado (id, nombre, area, email, pais, salario) values (726, 'Arlene Bunney', 'Product Management', 'abunneyk5@google.com.br', 'Colombia', 4628);
+insert into empleado (id, nombre, area, email, pais, salario) values (727, 'Chickie Aylott', 'Marketing', 'caylottk6@ycombinator.com', 'Colombia', 2384);
+insert into empleado (id, nombre, area, email, pais, salario) values (728, 'Randy Taw', 'Legal', 'rtawk7@europa.eu', 'Argentina', 3182);
+insert into empleado (id, nombre, area, email, pais, salario) values (729, 'Nanny Geleman', 'Accounting', 'ngelemank8@narod.ru', 'Mexico', 7850);
+insert into empleado (id, nombre, area, email, pais, salario) values (730, 'Regan Dudley', 'Engineering', 'rdudleyk9@odnoklassniki.ru', 'Uruguay', 6747);
+insert into empleado (id, nombre, area, email, pais, salario) values (731, 'Hollis Suermeiers', 'Sales', 'hsuermeierska@shareasale.com', 'Argentina', 5948);
+insert into empleado (id, nombre, area, email, pais, salario) values (732, 'Prue Seefeldt', 'Legal', 'pseefeldtkb@answers.com', 'Colombia', 3282);
+insert into empleado (id, nombre, area, email, pais, salario) values (733, 'Elnar Message', 'Research and Development', 'emessagekc@forbes.com', 'Peru', 3883);
+insert into empleado (id, nombre, area, email, pais, salario) values (734, 'Garwood Benger', 'Human Resources', 'gbengerkd@techcrunch.com', 'Argentina', 3662);
+insert into empleado (id, nombre, area, email, pais, salario) values (735, 'Karena Moggie', 'Product Management', 'kmoggieke@surveymonkey.com', 'Peru', 1895);
+insert into empleado (id, nombre, area, email, pais, salario) values (736, 'Karyl Assad', 'Accounting', 'kassadkf@storify.com', 'Argentina', 4751);
+insert into empleado (id, nombre, area, email, pais, salario) values (737, 'Kimberly Lambourne', 'Legal', 'klambournekg@dyndns.org', 'Peru', 2480);
+insert into empleado (id, nombre, area, email, pais, salario) values (738, 'Bernie de Keyser', 'Product Management', 'bdekh@bandcamp.com', 'Peru', 3286);
+insert into empleado (id, nombre, area, email, pais, salario) values (739, 'Jemima Yellop', 'Sales', 'jyellopki@statcounter.com', 'Mexico', 6384);
+insert into empleado (id, nombre, area, email, pais, salario) values (740, 'Deana Fairweather', 'Support', 'dfairweatherkj@fc2.com', 'Chile', 6908);
+insert into empleado (id, nombre, area, email, pais, salario) values (741, 'Ronny Waugh', 'Services', 'rwaughkk@ustream.tv', 'Bolivia', 5689);
+insert into empleado (id, nombre, area, email, pais, salario) values (742, 'Olag Jordine', 'Business Development', 'ojordinekl@etsy.com', 'Chile', 3811);
+insert into empleado (id, nombre, area, email, pais, salario) values (743, 'Bee Stutely', 'Support', 'bstutelykm@scribd.com', 'Peru', 763);
+insert into empleado (id, nombre, area, email, pais, salario) values (744, 'Garald Bridel', 'Accounting', 'gbridelkn@shinystat.com', 'Mexico', 1293);
+insert into empleado (id, nombre, area, email, pais, salario) values (745, 'Carri Oller', 'Research and Development', 'collerko@vk.com', 'Peru', 439);
+insert into empleado (id, nombre, area, email, pais, salario) values (746, 'Shirley Luker', 'Sales', 'slukerkp@google.ca', 'Argentina', 1856);
+insert into empleado (id, nombre, area, email, pais, salario) values (747, 'Hoebart Ceaser', 'Sales', 'hceaserkq@latimes.com', 'Mexico', 4906);
+insert into empleado (id, nombre, area, email, pais, salario) values (748, 'Thekla Bearcroft', 'Product Management', 'tbearcroftkr@hao123.com', 'Colombia', 2900);
+insert into empleado (id, nombre, area, email, pais, salario) values (749, 'Bradly Jeannin', 'Product Management', 'bjeanninks@wp.com', 'Colombia', 3799);
+insert into empleado (id, nombre, area, email, pais, salario) values (750, 'Ajay Oluwatoyin', 'Sales', 'aoluwatoyinkt@wordpress.org', 'Argentina', 7028);
+insert into empleado (id, nombre, area, email, pais, salario) values (751, 'Julietta Shillito', 'Support', 'jshillitoku@shareasale.com', 'Peru', 7233);
+insert into empleado (id, nombre, area, email, pais, salario) values (752, 'Devin MacAless', 'Sales', 'dmacalesskv@gizmodo.com', 'Argentina', 4761);
+insert into empleado (id, nombre, area, email, pais, salario) values (753, 'Juliet Youll', 'Product Management', 'jyoullkw@cbsnews.com', 'Argentina', 2817);
+insert into empleado (id, nombre, area, email, pais, salario) values (754, 'Edyth Kain', 'Research and Development', 'ekainkx@uiuc.edu', 'Mexico', 8318);
+insert into empleado (id, nombre, area, email, pais, salario) values (755, 'Koo Denyer', 'Training', 'kdenyerky@state.tx.us', 'Peru', 7225);
+insert into empleado (id, nombre, area, email, pais, salario) values (756, 'Leandra Bycraft', 'Human Resources', 'lbycraftkz@nationalgeographic.com', 'Mexico', 9121);
+insert into empleado (id, nombre, area, email, pais, salario) values (757, 'Florrie O''Sherrin', 'Marketing', 'fosherrinl0@google.ca', 'Uruguay', 9600);
+insert into empleado (id, nombre, area, email, pais, salario) values (758, 'Reidar Bavester', 'Business Development', 'rbavesterl1@ehow.com', 'Colombia', 3230);
+insert into empleado (id, nombre, area, email, pais, salario) values (759, 'Dehlia Bonney', 'Sales', 'dbonneyl2@timesonline.co.uk', 'Mexico', 9776);
+insert into empleado (id, nombre, area, email, pais, salario) values (760, 'Coleen Orringe', 'Human Resources', 'corringel3@dyndns.org', 'Colombia', 183);
+insert into empleado (id, nombre, area, email, pais, salario) values (761, 'Sutton Alu', 'Accounting', 'salul4@ycombinator.com', 'Mexico', 440);
+insert into empleado (id, nombre, area, email, pais, salario) values (762, 'Berkie Kose', 'Services', 'bkosel5@plala.or.jp', 'Peru', 1748);
+insert into empleado (id, nombre, area, email, pais, salario) values (763, 'Frederic Marple', 'Human Resources', 'fmarplel6@homestead.com', 'Peru', 6150);
+insert into empleado (id, nombre, area, email, pais, salario) values (764, 'Ellswerth De Vile', 'Business Development', 'edel7@wikia.com', 'Chile', 8831);
+insert into empleado (id, nombre, area, email, pais, salario) values (765, 'Beth Dring', 'Legal', 'bdringl8@123-reg.co.uk', 'Peru', 7579);
+insert into empleado (id, nombre, area, email, pais, salario) values (766, 'Aloise Brigstock', 'Research and Development', 'abrigstockl9@va.gov', 'Mexico', 8095);
+insert into empleado (id, nombre, area, email, pais, salario) values (767, 'Giusto Coundley', 'Research and Development', 'gcoundleyla@de.vu', 'Peru', 521);
+insert into empleado (id, nombre, area, email, pais, salario) values (768, 'Jennilee Velte', 'Business Development', 'jveltelb@globo.com', 'Colombia', 610);
+insert into empleado (id, nombre, area, email, pais, salario) values (769, 'Davidde Black', 'Legal', 'dblacklc@tinyurl.com', 'Argentina', 1059);
+insert into empleado (id, nombre, area, email, pais, salario) values (770, 'Hayward Phython', 'Training', 'hphythonld@gmpg.org', 'Argentina', 6752);
+insert into empleado (id, nombre, area, email, pais, salario) values (771, 'Jacki Garbott', 'Accounting', 'jgarbottle@globo.com', 'Argentina', 5752);
+insert into empleado (id, nombre, area, email, pais, salario) values (772, 'Valeria Taggerty', 'Human Resources', 'vtaggertylf@ehow.com', 'Peru', 5544);
+insert into empleado (id, nombre, area, email, pais, salario) values (773, 'Ibrahim Echallier', 'Marketing', 'iechallierlg@mysql.com', 'Peru', 4139);
+insert into empleado (id, nombre, area, email, pais, salario) values (774, 'Inglebert Portal', 'Training', 'iportallh@sphinn.com', 'Argentina', 1728);
+insert into empleado (id, nombre, area, email, pais, salario) values (775, 'Babette Beretta', 'Support', 'bberettali@cnbc.com', 'Bolivia', 6876);
+insert into empleado (id, nombre, area, email, pais, salario) values (776, 'Dillon Howden', 'Product Management', 'dhowdenlj@usatoday.com', 'Peru', 9368);
+insert into empleado (id, nombre, area, email, pais, salario) values (777, 'Fanni Frostick', 'Training', 'ffrosticklk@msu.edu', 'Argentina', 2216);
+insert into empleado (id, nombre, area, email, pais, salario) values (778, 'Henderson Brumen', 'Engineering', 'hbrumenll@furl.net', 'Colombia', 4790);
+insert into empleado (id, nombre, area, email, pais, salario) values (779, 'Rivy Eberz', 'Support', 'reberzlm@bravesites.com', 'Colombia', 5562);
+insert into empleado (id, nombre, area, email, pais, salario) values (780, 'Frances Paffley', 'Support', 'fpaffleyln@ihg.com', 'Peru', 5490);
+insert into empleado (id, nombre, area, email, pais, salario) values (781, 'Maurine Onthank', 'Human Resources', 'monthanklo@linkedin.com', 'Peru', 4080);
+insert into empleado (id, nombre, area, email, pais, salario) values (782, 'Chiquia Broadberry', 'Services', 'cbroadberrylp@twitpic.com', 'Bolivia', 3492);
+insert into empleado (id, nombre, area, email, pais, salario) values (783, 'Delcina Dwyr', 'Marketing', 'ddwyrlq@so-net.ne.jp', 'Peru', 6473);
+insert into empleado (id, nombre, area, email, pais, salario) values (784, 'Tam Lamperd', 'Sales', 'tlamperdlr@dailymail.co.uk', 'Uruguay', 2538);
+insert into empleado (id, nombre, area, email, pais, salario) values (785, 'Lezlie Larvent', 'Human Resources', 'llarventls@spiegel.de', 'Argentina', 5871);
+insert into empleado (id, nombre, area, email, pais, salario) values (786, 'Henrie Phelips', 'Services', 'hphelipslt@com.com', 'Argentina', 3461);
+insert into empleado (id, nombre, area, email, pais, salario) values (787, 'Xenia Thorogood', 'Accounting', 'xthorogoodlu@blogger.com', 'Mexico', 4524);
+insert into empleado (id, nombre, area, email, pais, salario) values (788, 'Joscelin Crick', 'Engineering', 'jcricklv@berkeley.edu', 'Peru', 3412);
+insert into empleado (id, nombre, area, email, pais, salario) values (789, 'Alysa Conibere', 'Business Development', 'aconiberelw@wufoo.com', 'Peru', 3775);
+insert into empleado (id, nombre, area, email, pais, salario) values (790, 'Jeffy Breeder', 'Accounting', 'jbreederlx@creativecommons.org', 'Peru', 3423);
+insert into empleado (id, nombre, area, email, pais, salario) values (791, 'Had Selwood', 'Business Development', 'hselwoodly@accuweather.com', 'Colombia', 7836);
+insert into empleado (id, nombre, area, email, pais, salario) values (792, 'Jeanine Pedrozzi', 'Sales', 'jpedrozzilz@ow.ly', 'Peru', 5540);
+insert into empleado (id, nombre, area, email, pais, salario) values (793, 'Jacenta Petyankin', 'Human Resources', 'jpetyankinm0@hhs.gov', 'Argentina', 2639);
+insert into empleado (id, nombre, area, email, pais, salario) values (794, 'Joey Duignan', 'Human Resources', 'jduignanm1@google.com.hk', 'Peru', 726);
+insert into empleado (id, nombre, area, email, pais, salario) values (795, 'Heddi Ridett', 'Research and Development', 'hridettm2@nasa.gov', 'Colombia', 8583);
+insert into empleado (id, nombre, area, email, pais, salario) values (796, 'Paulie Brehault', 'Support', 'pbrehaultm3@cbslocal.com', 'Chile', 4691);
+insert into empleado (id, nombre, area, email, pais, salario) values (797, 'Cody Addess', 'Legal', 'caddessm4@histats.com', 'Argentina', 7102);
+insert into empleado (id, nombre, area, email, pais, salario) values (798, 'Felecia Janusik', 'Accounting', 'fjanusikm5@ucoz.ru', 'Peru', 9941);
+insert into empleado (id, nombre, area, email, pais, salario) values (799, 'Claire Akehurst', 'Engineering', 'cakehurstm6@sciencedaily.com', 'Colombia', 3037);
+insert into empleado (id, nombre, area, email, pais, salario) values (800, 'Agatha Tesseyman', 'Business Development', 'atesseymanm7@bigcartel.com', 'Peru', 9017);
+insert into empleado (id, nombre, area, email, pais, salario) values (801, 'Stanleigh Clempton', 'Legal', 'sclemptonm8@dyndns.org', 'Mexico', 9595);
+insert into empleado (id, nombre, area, email, pais, salario) values (802, 'Denni Straughan', 'Legal', 'dstraughanm9@is.gd', 'Mexico', 2259);
+insert into empleado (id, nombre, area, email, pais, salario) values (803, 'Betti Batecok', 'Accounting', 'bbatecokma@sphinn.com', 'Peru', 7035);
+insert into empleado (id, nombre, area, email, pais, salario) values (804, 'Natty Pechan', 'Marketing', 'npechanmb@e-recht24.de', 'Peru', 8333);
+insert into empleado (id, nombre, area, email, pais, salario) values (805, 'Pauly Boyett', 'Marketing', 'pboyettmc@tinypic.com', 'Argentina', 7200);
+insert into empleado (id, nombre, area, email, pais, salario) values (806, 'Julianne Le Sarr', 'Research and Development', 'jlemd@theatlantic.com', 'Argentina', 895);
+insert into empleado (id, nombre, area, email, pais, salario) values (807, 'Abby McKmurrie', 'Services', 'amckmurrieme@123-reg.co.uk', 'Peru', 6971);
+insert into empleado (id, nombre, area, email, pais, salario) values (808, 'Corly Cutcliffe', 'Services', 'ccutcliffemf@last.fm', 'Bolivia', 598);
+insert into empleado (id, nombre, area, email, pais, salario) values (809, 'Durand Southcott', 'Human Resources', 'dsouthcottmg@mapquest.com', 'Peru', 4381);
+insert into empleado (id, nombre, area, email, pais, salario) values (810, 'Cate Cabrer', 'Engineering', 'ccabrermh@1und1.de', 'Chile', 3104);
+insert into empleado (id, nombre, area, email, pais, salario) values (811, 'Richart Lillow', 'Product Management', 'rlillowmi@skyrock.com', 'Argentina', 3449);
+insert into empleado (id, nombre, area, email, pais, salario) values (812, 'Edgardo Hassen', 'Engineering', 'ehassenmj@mail.ru', 'Colombia', 4399);
+insert into empleado (id, nombre, area, email, pais, salario) values (813, 'Zerk Servis', 'Training', 'zservismk@bluehost.com', 'Chile', 6113);
+insert into empleado (id, nombre, area, email, pais, salario) values (814, 'Jobi MacCahey', 'Services', 'jmaccaheyml@indiegogo.com', 'Peru', 4401);
+insert into empleado (id, nombre, area, email, pais, salario) values (815, 'Philomena Behan', 'Training', 'pbehanmm@ucoz.com', 'Peru', 4948);
+insert into empleado (id, nombre, area, email, pais, salario) values (816, 'Pavia Maile', 'Support', 'pmailemn@twitter.com', 'Spain', 2050);
+insert into empleado (id, nombre, area, email, pais, salario) values (817, 'Parker Breeder', 'Business Development', 'pbreedermo@theguardian.com', 'Mexico', 4072);
+insert into empleado (id, nombre, area, email, pais, salario) values (818, 'Rodolph Earngy', 'Accounting', 'rearngymp@google.cn', 'Colombia', 1248);
+insert into empleado (id, nombre, area, email, pais, salario) values (819, 'Ingar Forestall', 'Support', 'iforestallmq@spotify.com', 'Chile', 8327);
+insert into empleado (id, nombre, area, email, pais, salario) values (820, 'Marcelia Prestney', 'Engineering', 'mprestneymr@auda.org.au', 'Mexico', 6662);
+insert into empleado (id, nombre, area, email, pais, salario) values (821, 'Hymie Varian', 'Support', 'hvarianms@yellowbook.com', 'Argentina', 5119);
+insert into empleado (id, nombre, area, email, pais, salario) values (822, 'Celisse Manueli', 'Engineering', 'cmanuelimt@ustream.tv', 'Argentina', 8273);
+insert into empleado (id, nombre, area, email, pais, salario) values (823, 'Jackelyn Castagna', 'Business Development', 'jcastagnamu@bbc.co.uk', 'Peru', 1644);
+insert into empleado (id, nombre, area, email, pais, salario) values (824, 'Joycelin Bogays', 'Research and Development', 'jbogaysmv@angelfire.com', 'Colombia', 6189);
+insert into empleado (id, nombre, area, email, pais, salario) values (825, 'Hyacinthia Augie', 'Legal', 'haugiemw@google.com.au', 'Mexico', 1248);
+insert into empleado (id, nombre, area, email, pais, salario) values (826, 'Harwilll Tedahl', 'Sales', 'htedahlmx@sogou.com', 'Peru', 4126);
+insert into empleado (id, nombre, area, email, pais, salario) values (827, 'Dillie Dowe', 'Engineering', 'ddowemy@mit.edu', 'Colombia', 7687);
+insert into empleado (id, nombre, area, email, pais, salario) values (828, 'Ike Rontsch', 'Legal', 'irontschmz@dropbox.com', 'Argentina', 7444);
+insert into empleado (id, nombre, area, email, pais, salario) values (829, 'Storm Hunnicot', 'Product Management', 'shunnicotn0@edublogs.org', 'Argentina', 2900);
+insert into empleado (id, nombre, area, email, pais, salario) values (830, 'Georgiana Tinline', 'Services', 'gtinlinen1@reuters.com', 'Peru', 8306);
+insert into empleado (id, nombre, area, email, pais, salario) values (831, 'Moritz Gravenor', 'Research and Development', 'mgravenorn2@cisco.com', 'Peru', 3448);
+insert into empleado (id, nombre, area, email, pais, salario) values (832, 'Jenine Duckit', 'Research and Development', 'jduckitn3@bbc.co.uk', 'Argentina', 838);
+insert into empleado (id, nombre, area, email, pais, salario) values (833, 'Lynnet Kerley', 'Research and Development', 'lkerleyn4@blogtalkradio.com', 'Argentina', 4668);
+insert into empleado (id, nombre, area, email, pais, salario) values (834, 'Vanny MacComiskey', 'Sales', 'vmaccomiskeyn5@seesaa.net', 'Argentina', 8725);
+insert into empleado (id, nombre, area, email, pais, salario) values (835, 'Kayle Ascrofte', 'Marketing', 'kascroften6@techcrunch.com', 'Argentina', 3172);
+insert into empleado (id, nombre, area, email, pais, salario) values (836, 'Flin Elington', 'Support', 'felingtonn7@macromedia.com', 'Colombia', 7183);
+insert into empleado (id, nombre, area, email, pais, salario) values (837, 'Warde Bukowski', 'Human Resources', 'wbukowskin8@newyorker.com', 'Peru', 1470);
+insert into empleado (id, nombre, area, email, pais, salario) values (838, 'Carmencita Thompson', 'Human Resources', 'cthompsonn9@ning.com', 'Peru', 7745);
+insert into empleado (id, nombre, area, email, pais, salario) values (839, 'Kalli Glenister', 'Services', 'kglenisterna@blogs.com', 'Colombia', 2504);
+insert into empleado (id, nombre, area, email, pais, salario) values (840, 'Terrye Cerie', 'Training', 'tcerienb@webs.com', 'Colombia', 317);
+insert into empleado (id, nombre, area, email, pais, salario) values (841, 'Megan Langlands', 'Accounting', 'mlanglandsnc@meetup.com', 'Argentina', 5434);
+insert into empleado (id, nombre, area, email, pais, salario) values (842, 'Jerad Kitchingman', 'Sales', 'jkitchingmannd@pcworld.com', 'Peru', 5021);
+insert into empleado (id, nombre, area, email, pais, salario) values (843, 'Ardelis Mathivat', 'Sales', 'amathivatne@dell.com', 'Argentina', 2335);
+insert into empleado (id, nombre, area, email, pais, salario) values (844, 'Ginevra Skyme', 'Marketing', 'gskymenf@youtube.com', 'Argentina', 4404);
+insert into empleado (id, nombre, area, email, pais, salario) values (845, 'Fabiano Bodham', 'Product Management', 'fbodhamng@engadget.com', 'Peru', 9010);
+insert into empleado (id, nombre, area, email, pais, salario) values (846, 'Ursuline Dowthwaite', 'Business Development', 'udowthwaitenh@home.pl', 'Colombia', 6596);
+insert into empleado (id, nombre, area, email, pais, salario) values (847, 'Riobard Ryde', 'Sales', 'rrydeni@wp.com', 'Argentina', 3824);
+insert into empleado (id, nombre, area, email, pais, salario) values (848, 'Anderea Squelch', 'Accounting', 'asquelchnj@dyndns.org', 'Peru', 229);
+insert into empleado (id, nombre, area, email, pais, salario) values (849, 'Jerrome Cobbing', 'Sales', 'jcobbingnk@google.com.au', 'Argentina', 8277);
+insert into empleado (id, nombre, area, email, pais, salario) values (850, 'Mady Lago', 'Human Resources', 'mlagonl@who.int', 'Colombia', 1413);
+insert into empleado (id, nombre, area, email, pais, salario) values (851, 'Kale Grogona', 'Business Development', 'kgrogonanm@cafepress.com', 'Chile', 7168);
+insert into empleado (id, nombre, area, email, pais, salario) values (852, 'Brina Morshead', 'Support', 'bmorsheadnn@sina.com.cn', 'Colombia', 1194);
+insert into empleado (id, nombre, area, email, pais, salario) values (853, 'Ardene Simoens', 'Training', 'asimoensno@jalbum.net', 'Mexico', 7464);
+insert into empleado (id, nombre, area, email, pais, salario) values (854, 'Ethelbert Grafton-Herbert', 'Product Management', 'egraftonherbertnp@exblog.jp', 'Argentina', 6332);
+insert into empleado (id, nombre, area, email, pais, salario) values (855, 'Cornelius Studeart', 'Training', 'cstudeartnq@google.nl', 'Colombia', 6386);
+insert into empleado (id, nombre, area, email, pais, salario) values (856, 'Ozzy Corey', 'Sales', 'ocoreynr@patch.com', 'Chile', 5945);
+insert into empleado (id, nombre, area, email, pais, salario) values (857, 'Frankie Noto', 'Legal', 'fnotons@google.com', 'Colombia', 8242);
+insert into empleado (id, nombre, area, email, pais, salario) values (858, 'Johann Youel', 'Marketing', 'jyouelnt@webnode.com', 'Peru', 3847);
+insert into empleado (id, nombre, area, email, pais, salario) values (859, 'Vassily Teece', 'Accounting', 'vteecenu@behance.net', 'Colombia', 4094);
+insert into empleado (id, nombre, area, email, pais, salario) values (860, 'Cody Tall', 'Marketing', 'ctallnv@bigcartel.com', 'Argentina', 3774);
+insert into empleado (id, nombre, area, email, pais, salario) values (861, 'Seymour Belfit', 'Marketing', 'sbelfitnw@about.com', 'Peru', 2249);
+insert into empleado (id, nombre, area, email, pais, salario) values (862, 'Carmen Sedgemond', 'Sales', 'csedgemondnx@google.ru', 'Colombia', 2862);
+insert into empleado (id, nombre, area, email, pais, salario) values (863, 'Florian Bierman', 'Sales', 'fbiermanny@webmd.com', 'Colombia', 4663);
+insert into empleado (id, nombre, area, email, pais, salario) values (864, 'Wyatt Rough', 'Product Management', 'wroughnz@issuu.com', 'Spain', 1689);
+insert into empleado (id, nombre, area, email, pais, salario) values (865, 'Joellyn Gannon', 'Research and Development', 'jgannono0@unesco.org', 'Mexico', 6142);
+insert into empleado (id, nombre, area, email, pais, salario) values (866, 'Emilee Bolter', 'Sales', 'eboltero1@is.gd', 'Peru', 3751);
+insert into empleado (id, nombre, area, email, pais, salario) values (867, 'Fabien Purser', 'Business Development', 'fpursero2@list-manage.com', 'Colombia', 6313);
+insert into empleado (id, nombre, area, email, pais, salario) values (868, 'Yank Pimme', 'Research and Development', 'ypimmeo3@aboutads.info', 'Colombia', 6995);
+insert into empleado (id, nombre, area, email, pais, salario) values (869, 'Barbabra Wink', 'Support', 'bwinko4@google.ru', 'Peru', 4174);
+insert into empleado (id, nombre, area, email, pais, salario) values (870, 'Keane Gervaise', 'Marketing', 'kgervaiseo5@tuttocitta.it', 'Mexico', 2021);
+insert into empleado (id, nombre, area, email, pais, salario) values (871, 'Tabby Durber', 'Accounting', 'tdurbero6@amazon.co.uk', 'Argentina', 2522);
+insert into empleado (id, nombre, area, email, pais, salario) values (872, 'Dix Kyston', 'Research and Development', 'dkystono7@live.com', 'Mexico', 8930);
+insert into empleado (id, nombre, area, email, pais, salario) values (873, 'Cecilius Jakubovics', 'Marketing', 'cjakubovicso8@mail.ru', 'Argentina', 3200);
+insert into empleado (id, nombre, area, email, pais, salario) values (874, 'Clarice Beese', 'Sales', 'cbeeseo9@prnewswire.com', 'Peru', 8284);
+insert into empleado (id, nombre, area, email, pais, salario) values (875, 'Inna Chesser', 'Human Resources', 'ichesseroa@blogger.com', 'Chile', 825);
+insert into empleado (id, nombre, area, email, pais, salario) values (876, 'Inness Costa', 'Services', 'icostaob@amazon.com', 'Mexico', 7605);
+insert into empleado (id, nombre, area, email, pais, salario) values (877, 'Cindy Firle', 'Services', 'cfirleoc@yandex.ru', 'Peru', 378);
+insert into empleado (id, nombre, area, email, pais, salario) values (878, 'Agneta Tuffell', 'Marketing', 'atuffellod@noaa.gov', 'Argentina', 6647);
+insert into empleado (id, nombre, area, email, pais, salario) values (879, 'Goldina Milan', 'Engineering', 'gmilanoe@macromedia.com', 'Mexico', 5742);
+insert into empleado (id, nombre, area, email, pais, salario) values (880, 'Morten Worts', 'Product Management', 'mwortsof@ezinearticles.com', 'Spain', 3744);
+insert into empleado (id, nombre, area, email, pais, salario) values (881, 'Malachi Carillo', 'Sales', 'mcarilloog@prlog.org', 'Colombia', 5531);
+insert into empleado (id, nombre, area, email, pais, salario) values (882, 'Brit Ainsbury', 'Sales', 'bainsburyoh@ocn.ne.jp', 'Argentina', 7294);
+insert into empleado (id, nombre, area, email, pais, salario) values (883, 'Jerad Reah', 'Human Resources', 'jreahoi@walmart.com', 'Argentina', 6392);
+insert into empleado (id, nombre, area, email, pais, salario) values (884, 'Adey Hunnybun', 'Engineering', 'ahunnybunoj@forbes.com', 'Colombia', 1556);
+insert into empleado (id, nombre, area, email, pais, salario) values (885, 'Aundrea MacCosto', 'Human Resources', 'amaccostook@moonfruit.com', 'Colombia', 1098);
+insert into empleado (id, nombre, area, email, pais, salario) values (886, 'Devondra Clother', 'Research and Development', 'dclotherol@so-net.ne.jp', 'Argentina', 3221);
+insert into empleado (id, nombre, area, email, pais, salario) values (887, 'Aharon Aspray', 'Sales', 'aasprayom@furl.net', 'Peru', 3176);
+insert into empleado (id, nombre, area, email, pais, salario) values (888, 'Alix De Biaggi', 'Engineering', 'adeon@slideshare.net', 'Mexico', 7679);
+insert into empleado (id, nombre, area, email, pais, salario) values (889, 'Urbain Offener', 'Marketing', 'uoffeneroo@rambler.ru', 'Mexico', 8534);
+insert into empleado (id, nombre, area, email, pais, salario) values (890, 'Florella Halpin', 'Human Resources', 'fhalpinop@state.tx.us', 'Peru', 4632);
+insert into empleado (id, nombre, area, email, pais, salario) values (891, 'David Ondrich', 'Human Resources', 'dondrichoq@dmoz.org', 'Peru', 2829);
+insert into empleado (id, nombre, area, email, pais, salario) values (892, 'Evelin Nickoll', 'Product Management', 'enickollor@oakley.com', 'Colombia', 497);
+insert into empleado (id, nombre, area, email, pais, salario) values (893, 'Vannie Threadgill', 'Business Development', 'vthreadgillos@devhub.com', 'Spain', 2881);
+insert into empleado (id, nombre, area, email, pais, salario) values (894, 'Marion Brian', 'Marketing', 'mbrianot@icio.us', 'Colombia', 5484);
+insert into empleado (id, nombre, area, email, pais, salario) values (895, 'Kaiser Aughtie', 'Sales', 'kaughtieou@java.com', 'Peru', 9763);
+insert into empleado (id, nombre, area, email, pais, salario) values (896, 'Frazer Woolard', 'Human Resources', 'fwoolardov@gmpg.org', 'Peru', 959);
+insert into empleado (id, nombre, area, email, pais, salario) values (897, 'Tadio Cory', 'Legal', 'tcoryow@sbwire.com', 'Mexico', 3808);
+insert into empleado (id, nombre, area, email, pais, salario) values (898, 'Dickie Aslam', 'Business Development', 'daslamox@usnews.com', 'Argentina', 1943);
+insert into empleado (id, nombre, area, email, pais, salario) values (899, 'Henrieta Caygill', 'Accounting', 'hcaygilloy@jigsy.com', 'Mexico', 9373);
+insert into empleado (id, nombre, area, email, pais, salario) values (900, 'Chrysa Garlant', 'Human Resources', 'cgarlantoz@statcounter.com', 'Spain', 8533);
+insert into empleado (id, nombre, area, email, pais, salario) values (901, 'Hayward Cockayme', 'Accounting', 'hcockaymep0@amazon.co.jp', 'Peru', 9626);
+insert into empleado (id, nombre, area, email, pais, salario) values (902, 'Moira See', 'Product Management', 'mseep1@hibu.com', 'Colombia', 5415);
+insert into empleado (id, nombre, area, email, pais, salario) values (903, 'Wylie McNally', 'Research and Development', 'wmcnallyp2@psu.edu', 'Uruguay', 6494);
+insert into empleado (id, nombre, area, email, pais, salario) values (904, 'Annabel Legrice', 'Legal', 'alegricep3@eventbrite.com', 'Argentina', 9805);
+insert into empleado (id, nombre, area, email, pais, salario) values (905, 'Rasla Nannetti', 'Business Development', 'rnannettip4@dedecms.com', 'Argentina', 442);
+insert into empleado (id, nombre, area, email, pais, salario) values (906, 'Ealasaid Gadney', 'Marketing', 'egadneyp5@newyorker.com', 'Peru', 4561);
+insert into empleado (id, nombre, area, email, pais, salario) values (907, 'Lynette Faircliffe', 'Product Management', 'lfaircliffep6@independent.co.uk', 'Argentina', 3810);
+insert into empleado (id, nombre, area, email, pais, salario) values (908, 'Bradan Moland', 'Sales', 'bmolandp7@sciencedirect.com', 'Colombia', 8680);
+insert into empleado (id, nombre, area, email, pais, salario) values (909, 'Emlen Breacher', 'Engineering', 'ebreacherp8@geocities.jp', 'Argentina', 5315);
+insert into empleado (id, nombre, area, email, pais, salario) values (910, 'Odie Clemenzi', 'Engineering', 'oclemenzip9@tripadvisor.com', 'Colombia', 260);
+insert into empleado (id, nombre, area, email, pais, salario) values (911, 'Romona Haxbie', 'Services', 'rhaxbiepa@people.com.cn', 'Peru', 8545);
+insert into empleado (id, nombre, area, email, pais, salario) values (912, 'Vince Baudasso', 'Business Development', 'vbaudassopb@usda.gov', 'Peru', 9376);
+insert into empleado (id, nombre, area, email, pais, salario) values (913, 'Mureil Sitlinton', 'Product Management', 'msitlintonpc@imageshack.us', 'Argentina', 9411);
+insert into empleado (id, nombre, area, email, pais, salario) values (914, 'Jacques Joskovitch', 'Services', 'jjoskovitchpd@joomla.org', 'Mexico', 8770);
+insert into empleado (id, nombre, area, email, pais, salario) values (915, 'Nefen Milsom', 'Marketing', 'nmilsompe@wp.com', 'Mexico', 3124);
+insert into empleado (id, nombre, area, email, pais, salario) values (916, 'Nick Palfreman', 'Human Resources', 'npalfremanpf@dailymail.co.uk', 'Peru', 5946);
+insert into empleado (id, nombre, area, email, pais, salario) values (917, 'Burr Forsythe', 'Research and Development', 'bforsythepg@theglobeandmail.com', 'Colombia', 6327);
+insert into empleado (id, nombre, area, email, pais, salario) values (918, 'Ryon Kimble', 'Marketing', 'rkimbleph@baidu.com', 'Colombia', 6252);
+insert into empleado (id, nombre, area, email, pais, salario) values (919, 'Andriette Midner', 'Services', 'amidnerpi@latimes.com', 'Colombia', 9700);
+insert into empleado (id, nombre, area, email, pais, salario) values (920, 'Graham Childes', 'Business Development', 'gchildespj@dedecms.com', 'Peru', 8176);
+insert into empleado (id, nombre, area, email, pais, salario) values (921, 'Eilis Dumper', 'Services', 'edumperpk@hatena.ne.jp', 'Colombia', 7483);
+insert into empleado (id, nombre, area, email, pais, salario) values (922, 'Meaghan Clausner', 'Accounting', 'mclausnerpl@live.com', 'Peru', 4568);
+insert into empleado (id, nombre, area, email, pais, salario) values (923, 'Maddi Vamplus', 'Training', 'mvampluspm@skype.com', 'Peru', 9804);
+insert into empleado (id, nombre, area, email, pais, salario) values (924, 'Paddie Vagg', 'Engineering', 'pvaggpn@etsy.com', 'Argentina', 608);
+insert into empleado (id, nombre, area, email, pais, salario) values (925, 'Robinia Lauridsen', 'Accounting', 'rlauridsenpo@plala.or.jp', 'Argentina', 5025);
+insert into empleado (id, nombre, area, email, pais, salario) values (926, 'Gus Seamer', 'Marketing', 'gseamerpp@who.int', 'Argentina', 8383);
+insert into empleado (id, nombre, area, email, pais, salario) values (927, 'Margery Minelli', 'Human Resources', 'mminellipq@wsj.com', 'Peru', 3437);
+insert into empleado (id, nombre, area, email, pais, salario) values (928, 'Vivyanne Crookall', 'Research and Development', 'vcrookallpr@nyu.edu', 'Peru', 8147);
+insert into empleado (id, nombre, area, email, pais, salario) values (929, 'Belia Markovich', 'Marketing', 'bmarkovichps@furl.net', 'Spain', 8179);
+insert into empleado (id, nombre, area, email, pais, salario) values (930, 'Rodd Kersaw', 'Research and Development', 'rkersawpt@nhs.uk', 'Peru', 8504);
+insert into empleado (id, nombre, area, email, pais, salario) values (931, 'Ethel Lukovic', 'Training', 'elukovicpu@earthlink.net', 'Argentina', 9261);
+insert into empleado (id, nombre, area, email, pais, salario) values (932, 'Rosy De Cruce', 'Business Development', 'rdepv@google.pl', 'Peru', 4585);
+insert into empleado (id, nombre, area, email, pais, salario) values (933, 'Ignaz Downe', 'Training', 'idownepw@constantcontact.com', 'Colombia', 5701);
+insert into empleado (id, nombre, area, email, pais, salario) values (934, 'Fianna Colbran', 'Legal', 'fcolbranpx@scribd.com', 'Colombia', 873);
+insert into empleado (id, nombre, area, email, pais, salario) values (935, 'Janie Yare', 'Product Management', 'jyarepy@so-net.ne.jp', 'Mexico', 7435);
+insert into empleado (id, nombre, area, email, pais, salario) values (936, 'Ofella Morston', 'Marketing', 'omorstonpz@list-manage.com', 'Colombia', 9497);
+insert into empleado (id, nombre, area, email, pais, salario) values (937, 'Cointon Leney', 'Legal', 'cleneyq0@purevolume.com', 'Mexico', 5250);
+insert into empleado (id, nombre, area, email, pais, salario) values (938, 'Hyacinthe Cranstoun', 'Services', 'hcranstounq1@ox.ac.uk', 'Peru', 4523);
+insert into empleado (id, nombre, area, email, pais, salario) values (939, 'Jonis Hasselby', 'Marketing', 'jhasselbyq2@tripod.com', 'Argentina', 190);
+insert into empleado (id, nombre, area, email, pais, salario) values (940, 'Papagena Woodard', 'Business Development', 'pwoodardq3@histats.com', 'Peru', 6700);
+insert into empleado (id, nombre, area, email, pais, salario) values (941, 'Ximenez Dingwall', 'Engineering', 'xdingwallq4@delicious.com', 'Bolivia', 8776);
+insert into empleado (id, nombre, area, email, pais, salario) values (942, 'Alexia Bonus', 'Human Resources', 'abonusq5@reddit.com', 'Peru', 5257);
+insert into empleado (id, nombre, area, email, pais, salario) values (943, 'Hildagard Matura', 'Human Resources', 'hmaturaq6@nps.gov', 'Colombia', 5123);
+insert into empleado (id, nombre, area, email, pais, salario) values (944, 'Ross Snazel', 'Business Development', 'rsnazelq7@creativecommons.org', 'Uruguay', 4990);
+insert into empleado (id, nombre, area, email, pais, salario) values (945, 'Sholom Renzo', 'Legal', 'srenzoq8@google.com', 'Peru', 9694);
+insert into empleado (id, nombre, area, email, pais, salario) values (946, 'Charlena Viccary', 'Sales', 'cviccaryq9@prlog.org', 'Peru', 1633);
+insert into empleado (id, nombre, area, email, pais, salario) values (947, 'Rey McKelvey', 'Engineering', 'rmckelveyqa@go.com', 'Mexico', 5649);
+insert into empleado (id, nombre, area, email, pais, salario) values (948, 'Alison Bednall', 'Legal', 'abednallqb@bloglovin.com', 'Mexico', 5316);
+insert into empleado (id, nombre, area, email, pais, salario) values (949, 'Silvain Scrannage', 'Support', 'sscrannageqc@miitbeian.gov.cn', 'Spain', 3813);
+insert into empleado (id, nombre, area, email, pais, salario) values (950, 'Valdemar Dozdill', 'Marketing', 'vdozdillqd@youtube.com', 'Colombia', 8108);
+insert into empleado (id, nombre, area, email, pais, salario) values (951, 'Natal Henkmann', 'Human Resources', 'nhenkmannqe@spiegel.de', 'Uruguay', 1313);
+insert into empleado (id, nombre, area, email, pais, salario) values (952, 'Jaquelin Bodycombe', 'Engineering', 'jbodycombeqf@multiply.com', 'Colombia', 3264);
+insert into empleado (id, nombre, area, email, pais, salario) values (953, 'Marj Bowden', 'Product Management', 'mbowdenqg@exblog.jp', 'Peru', 760);
+insert into empleado (id, nombre, area, email, pais, salario) values (954, 'Ulysses O''Bradane', 'Sales', 'uobradaneqh@youtu.be', 'Mexico', 5631);
+insert into empleado (id, nombre, area, email, pais, salario) values (955, 'Andie Corke', 'Services', 'acorkeqi@reddit.com', 'Mexico', 9437);
+insert into empleado (id, nombre, area, email, pais, salario) values (956, 'Winni Tabbitt', 'Services', 'wtabbittqj@artisteer.com', 'Peru', 6323);
+insert into empleado (id, nombre, area, email, pais, salario) values (957, 'Willy Sikora', 'Training', 'wsikoraqk@time.com', 'Chile', 8259);
+insert into empleado (id, nombre, area, email, pais, salario) values (958, 'Erhard Inglis', 'Services', 'einglisql@timesonline.co.uk', 'Mexico', 5405);
+insert into empleado (id, nombre, area, email, pais, salario) values (959, 'Hansiain Von Helmholtz', 'Services', 'hvonqm@unc.edu', 'Mexico', 5436);
+insert into empleado (id, nombre, area, email, pais, salario) values (960, 'Marten Stallard', 'Business Development', 'mstallardqn@smugmug.com', 'Colombia', 2918);
+insert into empleado (id, nombre, area, email, pais, salario) values (961, 'Raddy Hoyland', 'Human Resources', 'rhoylandqo@webs.com', 'Colombia', 7515);
+insert into empleado (id, nombre, area, email, pais, salario) values (962, 'Kari Sterling', 'Legal', 'ksterlingqp@biglobe.ne.jp', 'Colombia', 8968);
+insert into empleado (id, nombre, area, email, pais, salario) values (963, 'Teodora Yeo', 'Business Development', 'tyeoqq@vistaprint.com', 'Peru', 3687);
+insert into empleado (id, nombre, area, email, pais, salario) values (964, 'Lanie Archibould', 'Business Development', 'larchibouldqr@ebay.co.uk', 'Argentina', 9505);
+insert into empleado (id, nombre, area, email, pais, salario) values (965, 'Lib Simla', 'Sales', 'lsimlaqs@geocities.com', 'Uruguay', 9810);
+insert into empleado (id, nombre, area, email, pais, salario) values (966, 'Shem Felce', 'Human Resources', 'sfelceqt@nih.gov', 'Bolivia', 9201);
+insert into empleado (id, nombre, area, email, pais, salario) values (967, 'Cornela Matteoni', 'Services', 'cmatteoniqu@discovery.com', 'Colombia', 9088);
+insert into empleado (id, nombre, area, email, pais, salario) values (968, 'Huntlee Le Gall', 'Sales', 'hleqv@icio.us', 'Peru', 9464);
+insert into empleado (id, nombre, area, email, pais, salario) values (969, 'Paquito Shawel', 'Research and Development', 'pshawelqw@dagondesign.com', 'Mexico', 6722);
+insert into empleado (id, nombre, area, email, pais, salario) values (970, 'Towney Cansdell', 'Engineering', 'tcansdellqx@mlb.com', 'Spain', 7573);
+insert into empleado (id, nombre, area, email, pais, salario) values (971, 'Daisey Beauchop', 'Services', 'dbeauchopqy@moonfruit.com', 'Bolivia', 2858);
+insert into empleado (id, nombre, area, email, pais, salario) values (972, 'Michail Brotheridge', 'Accounting', 'mbrotheridgeqz@businesswire.com', 'Peru', 2344);
+insert into empleado (id, nombre, area, email, pais, salario) values (973, 'Ximenes Aguirre', 'Product Management', 'xaguirrer0@myspace.com', 'Peru', 3343);
+insert into empleado (id, nombre, area, email, pais, salario) values (974, 'Jonis Clibbery', 'Accounting', 'jclibberyr1@ezinearticles.com', 'Argentina', 9549);
+insert into empleado (id, nombre, area, email, pais, salario) values (975, 'Anne-corinne Cardnell', 'Research and Development', 'acardnellr2@t-online.de', 'Colombia', 447);
+insert into empleado (id, nombre, area, email, pais, salario) values (976, 'Clayson Andreou', 'Marketing', 'candreour3@free.fr', 'Mexico', 1181);
+insert into empleado (id, nombre, area, email, pais, salario) values (977, 'Carrol Britton', 'Research and Development', 'cbrittonr4@edublogs.org', 'Uruguay', 3280);
+insert into empleado (id, nombre, area, email, pais, salario) values (978, 'Kaylee Berthomier', 'Engineering', 'kberthomierr5@samsung.com', 'Peru', 5497);
+insert into empleado (id, nombre, area, email, pais, salario) values (979, 'Hastings MacCart', 'Human Resources', 'hmaccartr6@oracle.com', 'Argentina', 9989);
+insert into empleado (id, nombre, area, email, pais, salario) values (980, 'Brier Trehearne', 'Engineering', 'btrehearner7@over-blog.com', 'Argentina', 9166);
+insert into empleado (id, nombre, area, email, pais, salario) values (981, 'Hilda Flips', 'Research and Development', 'hflipsr8@netlog.com', 'Uruguay', 4779);
+insert into empleado (id, nombre, area, email, pais, salario) values (982, 'Jourdan Alberti', 'Research and Development', 'jalbertir9@infoseek.co.jp', 'Colombia', 8925);
+insert into empleado (id, nombre, area, email, pais, salario) values (983, 'Karin Stroud', 'Sales', 'kstroudra@squarespace.com', 'Peru', 8759);
+insert into empleado (id, nombre, area, email, pais, salario) values (984, 'Linn Frandsen', 'Research and Development', 'lfrandsenrb@privacy.gov.au', 'Peru', 4328);
+insert into empleado (id, nombre, area, email, pais, salario) values (985, 'Sianna Rosingdall', 'Marketing', 'srosingdallrc@unesco.org', 'Argentina', 7564);
+insert into empleado (id, nombre, area, email, pais, salario) values (986, 'Fianna Fremantle', 'Marketing', 'ffremantlerd@cdc.gov', 'Peru', 4929);
+insert into empleado (id, nombre, area, email, pais, salario) values (987, 'Tyson Saddleton', 'Training', 'tsaddletonre@twitpic.com', 'Chile', 719);
+insert into empleado (id, nombre, area, email, pais, salario) values (988, 'Candra Lobell', 'Training', 'clobellrf@smugmug.com', 'Peru', 4443);
+insert into empleado (id, nombre, area, email, pais, salario) values (989, 'Midge Duddy', 'Legal', 'mduddyrg@gizmodo.com', 'Mexico', 8078);
+insert into empleado (id, nombre, area, email, pais, salario) values (990, 'Carr Arrighini', 'Support', 'carrighinirh@blogger.com', 'Mexico', 3400);
+insert into empleado (id, nombre, area, email, pais, salario) values (991, 'Lotta Alvis', 'Product Management', 'lalvisri@blinklist.com', 'Mexico', 8943);
+insert into empleado (id, nombre, area, email, pais, salario) values (992, 'Davie Lepper', 'Support', 'dlepperrj@miitbeian.gov.cn', 'Argentina', 3862);
+insert into empleado (id, nombre, area, email, pais, salario) values (993, 'Erl Dally', 'Engineering', 'edallyrk@myspace.com', 'Mexico', 7032);
+insert into empleado (id, nombre, area, email, pais, salario) values (994, 'Bidget Owbridge', 'Human Resources', 'bowbridgerl@globo.com', 'Chile', 4086);
+insert into empleado (id, nombre, area, email, pais, salario) values (995, 'Linell Grint', 'Research and Development', 'lgrintrm@whitehouse.gov', 'Peru', 1683);
+insert into empleado (id, nombre, area, email, pais, salario) values (996, 'Bobbee Jehu', 'Research and Development', 'bjehurn@goo.ne.jp', 'Mexico', 1539);
+insert into empleado (id, nombre, area, email, pais, salario) values (997, 'Elva Breffit', 'Product Management', 'ebreffitro@auda.org.au', 'Bolivia', 6175);
+insert into empleado (id, nombre, area, email, pais, salario) values (998, 'Patricio Lebell', 'Human Resources', 'plebellrp@bing.com', 'Colombia', 8954);
+insert into empleado (id, nombre, area, email, pais, salario) values (999, 'Byrann Bontein', 'Research and Development', 'bbonteinrq@purevolume.com', 'Peru', 809);
+insert into empleado (id, nombre, area, email, pais, salario) values (1000, 'Brittaney Limpkin', 'Human Resources', 'blimpkinrr@phoca.cz', 'Colombia', 716);
