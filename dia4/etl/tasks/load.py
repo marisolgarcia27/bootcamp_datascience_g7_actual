@@ -3,6 +3,17 @@ import mysql.connector
 
 def load(data):
     resultado = 0
+    # Primero, conecta sin especificar la base de datos para crearla si no existe
+    conn = mysql.connector.connect(
+        host='localhost',
+        user='root',
+        password='root2025'
+    )
+    cursor = conn.cursor()
+    cursor.execute("CREATE DATABASE IF NOT EXISTS db_g7")
+    conn.close()
+
+    # Ahora conecta a la base de datos creada
     conn = mysql.connector.connect(
         host='localhost',
         user='root',
