@@ -1,6 +1,6 @@
 import requests
 
-TOKEN = 'f3250cee2540cd28175f0ea0d226279be5e06f61e8583f15e544d70d14f52b6d'
+TOKEN = 'copiatutoken'
 API_URL = 'https://apiperu.dev/api/ruc'
 
 ruc = input('INGRESE NRO DE RUC : ')
